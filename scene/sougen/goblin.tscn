@@ -1,0 +1,280 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://data/font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://script/sougen/goblin.gd" type="Script" id=2]
+[ext_resource path="res://data/image/bg/wood_sun.png" type="Texture" id=3]
+[ext_resource path="res://data/image/monster/goburinn.png" type="Texture" id=4]
+[ext_resource path="res://script/player.gd" type="Script" id=6]
+
+[node name="goblin" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="player" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 6.10352e-05
+texture = ExtResource( 3 )
+expand = true
+
+[node name="gazou" type="TextureRect" parent="."]
+margin_left = 66.0
+margin_top = 486.0
+margin_right = 1722.0
+margin_bottom = 2162.0
+rect_scale = Vector2( 0.28, 0.28 )
+texture = ExtResource( 4 )
+
+[node name="sentou" type="Button" parent="."]
+margin_top = 1050.0
+margin_right = 150.0
+margin_bottom = 1130.0
+custom_fonts/font = ExtResource( 1 )
+text = "戦闘"
+
+[node name="kill" type="Button" parent="sentou"]
+visible = false
+margin_top = 80.0
+margin_right = 300.0
+margin_bottom = 160.0
+custom_fonts/font = ExtResource( 1 )
+text = "殺す"
+
+[node name="utinomesu" type="Button" parent="sentou"]
+visible = false
+margin_left = 300.0
+margin_top = 80.0
+margin_right = 600.0
+margin_bottom = 160.0
+custom_fonts/font = ExtResource( 1 )
+text = "打ちのめす"
+
+[node name="saikindo" type="Button" parent="."]
+visible = false
+margin_top = 1050.0
+margin_right = 300.0
+margin_bottom = 1130.0
+custom_fonts/font = ExtResource( 1 )
+text = "最近どう？"
+
+[node name="tugihe" type="Button" parent="."]
+visible = false
+margin_top = 1050.0
+margin_right = 300.0
+margin_bottom = 1130.0
+custom_fonts/font = ExtResource( 1 )
+text = "次へ"
+
+[node name="modoru" type="Button" parent="."]
+visible = false
+margin_top = 1050.0
+margin_right = 300.0
+margin_bottom = 1130.0
+custom_fonts/font = ExtResource( 1 )
+text = "戻る"
+
+[node name="tomodati" type="Button" parent="."]
+visible = false
+margin_top = 1130.0
+margin_right = 600.0
+margin_bottom = 1210.0
+custom_fonts/font = ExtResource( 1 )
+text = "友達になってくれる？"
+
+[node name="koudou" type="Button" parent="."]
+margin_left = 150.0
+margin_top = 1050.0
+margin_right = 300.0
+margin_bottom = 1130.0
+custom_fonts/font = ExtResource( 1 )
+text = "行動"
+
+[node name="aisatu" type="Button" parent="koudou"]
+visible = false
+margin_left = -150.0
+margin_top = 80.0
+margin_bottom = 160.0
+custom_fonts/font = ExtResource( 1 )
+text = "挨拶"
+
+[node name="kaiwa" type="Button" parent="koudou"]
+visible = false
+margin_top = 80.0
+margin_right = 150.0
+margin_bottom = 160.0
+custom_fonts/font = ExtResource( 1 )
+text = "会話"
+
+[node name="okurimono" type="Button" parent="koudou"]
+visible = false
+margin_left = 150.0
+margin_top = 80.0
+margin_right = 300.0
+margin_bottom = 160.0
+custom_fonts/font = ExtResource( 1 )
+text = "贈り物"
+
+[node name="batou" type="Button" parent="koudou"]
+visible = false
+margin_left = 300.0
+margin_top = 80.0
+margin_right = 450.0
+margin_bottom = 160.0
+custom_fonts/font = ExtResource( 1 )
+text = "罵倒"
+
+[node name="kakunin" type="Button" parent="."]
+margin_left = 300.0
+margin_top = 1050.0
+margin_right = 450.0
+margin_bottom = 1130.0
+custom_fonts/font = ExtResource( 1 )
+text = "確認"
+
+[node name="nigeru" type="Button" parent="."]
+margin_left = 450.0
+margin_top = 1050.0
+margin_right = 600.0
+margin_bottom = 1130.0
+custom_fonts/font = ExtResource( 1 )
+text = "逃走"
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = 280.0
+margin_right = 300.0
+margin_bottom = 427.0
+
+[node name="message" type="Label" parent="Panel"]
+anchor_left = 0.0116667
+anchor_top = 0.0510204
+anchor_right = 0.923333
+anchor_bottom = 0.860544
+margin_left = 11.0
+margin_top = -0.499999
+margin_right = 26.0002
+margin_bottom = 13.5
+custom_fonts/font = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 11.0
+margin_top = 264.0
+margin_right = 592.0
+margin_bottom = 425.0
+color = Color( 0.45098, 0.439216, 0.439216, 0.588235 )
+
+[node name="namae" type="Label" parent="ColorRect"]
+anchor_left = 0.0116667
+anchor_top = 0.0510204
+anchor_right = 0.923333
+anchor_bottom = 0.860544
+margin_left = 4.22165
+margin_top = 1.78572
+margin_right = -462.456
+margin_bottom = -89.5476
+custom_fonts/font = ExtResource( 1 )
+text = "名前："
+
+[node name="name" type="Label" parent="ColorRect"]
+anchor_left = 0.0116667
+anchor_top = 0.0510204
+anchor_right = 0.923333
+anchor_bottom = 0.860544
+margin_left = 68.2216
+margin_top = 1.78572
+margin_right = -247.456
+margin_bottom = -89.5476
+custom_fonts/font = ExtResource( 1 )
+
+[node name="kankei" type="Label" parent="ColorRect"]
+anchor_left = 0.0116667
+anchor_top = 0.0510204
+anchor_right = 0.923333
+anchor_bottom = 0.860544
+margin_left = 293.222
+margin_top = 1.78572
+margin_right = -174.456
+margin_bottom = -91.5476
+custom_fonts/font = ExtResource( 1 )
+text = "関係："
+
+[node name="dou" type="Label" parent="ColorRect"]
+anchor_left = 0.0116667
+anchor_top = 0.0510204
+anchor_right = 0.923333
+anchor_bottom = 0.860544
+margin_left = 368.222
+margin_top = 1.78572
+margin_right = 35.5435
+margin_bottom = -91.5476
+custom_fonts/font = ExtResource( 1 )
+
+[node name="mon_kankei" type="Label" parent="ColorRect"]
+anchor_left = 0.0116667
+anchor_top = 0.0510204
+anchor_right = 0.923333
+anchor_bottom = 0.860544
+margin_left = 4.22165
+margin_top = 71.7857
+margin_right = -450.456
+margin_bottom = -19.5476
+custom_fonts/font = ExtResource( 1 )
+text = "怪物界："
+
+[node name="mon_kankei2" type="Label" parent="ColorRect"]
+anchor_left = 0.0116667
+anchor_top = 0.0510204
+anchor_right = 0.923333
+anchor_bottom = 0.860544
+margin_left = 104.222
+margin_top = 71.7857
+margin_right = -325.456
+margin_bottom = -19.5476
+custom_fonts/font = ExtResource( 1 )
+
+[node name="hu_kankei" type="Label" parent="ColorRect"]
+anchor_left = 0.0116667
+anchor_top = 0.0510204
+anchor_right = 0.923333
+anchor_bottom = 0.860544
+margin_left = 293.222
+margin_top = 71.7857
+margin_right = -136.456
+margin_bottom = -19.5476
+custom_fonts/font = ExtResource( 1 )
+text = "人間界："
+
+[node name="hu_kankei2" type="Label" parent="ColorRect"]
+anchor_left = 0.0116667
+anchor_top = 0.0510204
+anchor_right = 0.923333
+anchor_bottom = 0.860544
+margin_left = 393.222
+margin_top = 71.7857
+margin_right = -36.4565
+margin_bottom = -19.5476
+custom_fonts/font = ExtResource( 1 )
+
+[connection signal="pressed" from="sentou" to="." method="_on_sentou_pressed"]
+[connection signal="pressed" from="sentou/kill" to="." method="_on_kill_pressed"]
+[connection signal="pressed" from="sentou/utinomesu" to="." method="_on_utinomesu_pressed"]
+[connection signal="pressed" from="saikindo" to="." method="_on_saikindo_pressed"]
+[connection signal="pressed" from="tugihe" to="." method="_on_tugihe_pressed"]
+[connection signal="pressed" from="modoru" to="." method="_on_modoru_pressed"]
+[connection signal="pressed" from="tomodati" to="." method="_on_tomodati_pressed"]
+[connection signal="pressed" from="koudou" to="." method="_on_koudou_pressed"]
+[connection signal="pressed" from="koudou/aisatu" to="." method="_on_aisatu_pressed"]
+[connection signal="pressed" from="koudou/kaiwa" to="." method="_on_kaiwa_pressed"]
+[connection signal="pressed" from="koudou/batou" to="." method="_on_batou_pressed"]
+[connection signal="pressed" from="kakunin" to="." method="_on_kakunin_pressed"]
+[connection signal="pressed" from="nigeru" to="." method="_on_nigeru_pressed"]
