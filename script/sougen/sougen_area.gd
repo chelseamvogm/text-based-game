@@ -1,17 +1,36 @@
 extends Control
 
-var p_name = Player.p_name
-var p_hu_love = Player.p_hu_love
-var p_mo_love = Player.p_mo_love
-var p_hp = Player.p_hp
-var p_attack = Player.p_attack
-var p_defense = Player.p_defense
-var p_dati = Player.p_dati
+var _p_name = Player._p_name
+var _p_hp = Player._p_hp
+var _p_attack = Player._p_attack
+var _p_defense = Player._p_defense
+var _p_kane = Player._p_kane
+var _p_hu_love = Player._p_hu_love
+var _p_mo_love = Player._p_mo_love
+var _p_dati = Player._p_dati
+var _p_kill = Player._p_kill
+var _playerdata = Player._playerdata
 
 var g = preload("res://scene/sougen/goblin.tscn")
-var k = preload("res://scene/sougen/koumori.tscn")
-var sougen = [g, k]
-var p
+var sougen = [g]
+
+var _savefile = "user://kimi.save"
+
+
+func _save_datadayo():
+	_playerdata = {
+		"p_name" : _p_name,
+		"p_hp" : _p_hp,
+		"p_attack" : _p_attack,
+		"p_defense" : _p_defense,
+		"p_kane" : _p_kane,
+		"p_hu_love" : _p_hu_love,
+		"p_mo_love" : _p_mo_love,
+		"p_dati" : _p_dati,
+		"p_kill" : _p_kill
+	}
+	return _playerdata
+
 
 func _ready():
 	randomize()
@@ -20,58 +39,113 @@ func _ready():
 	p_kinryoku()
 	p_taisei()
 	p_tairyoku()
-	$ColorRect/pnamae.text = p_name
+	Player._load_suruyo()
+	$ColorRect/pnamae.text = _p_name
 
 
 func mon_kankei():
-	if p_mo_love >= 350:
+	if _p_mo_love >= 350:
 		$ColorRect/mon_zyoutai2.text = "イイ感じ"
-	elif p_mo_love <= 349 and p_mo_love >= 100:
+	elif _p_mo_love <= 349 and _p_mo_love >= 100:
 		$ColorRect/mon_zyoutai2.text = "そこそこな感じ"
 	else:
 		$ColorRect/mon_zyoutai2.text = "ヤバい感じ"
 
+
 func hu_kankei():
-	if p_hu_love >= 350:
+	if _p_hu_love >= 350:
 		$ColorRect/hu_zyoutai2.text  = "イイ感じ"
-	elif p_hu_love <= 349 and p_hu_love >= 100:
+	elif _p_hu_love <= 349 and _p_hu_love >= 100:
 		$ColorRect/hu_zyoutai2.text = "そこそこな感じ"
 	else:
 		$ColorRect/hu_zyoutai2.text = "ヤバい感じ"
 
+
 func p_kinryoku():
-	if p_attack >= 500:
+	if _p_attack >= 500:
 		$ColorRect/kinryoku_suuzi.text  = "ゴリマッチョ"
-	elif p_attack <= 499 and p_attack >= 200:
+	elif _p_attack <= 499 and _p_attack >= 200:
 		$ColorRect/kinryoku_suuzi.text = "細マッチョ"
 	else:
 		$ColorRect/kinryoku_suuzi.text = "普通"
 
+
 func p_taisei():
-	if p_defense >= 500:
+	if _p_defense >= 500:
 		$ColorRect/taisei_suuzi.text  = "金属"
-	elif p_defense <= 499 and p_defense >= 200:
+	elif _p_defense <= 499 and _p_defense >= 200:
 		$ColorRect/taisei_suuzi.text = "布"
 	else:
 		$ColorRect/taisei_suuzi.text = "紙"
 
+
 func p_tairyoku():
-	if p_hp >= 5000:
+	if _p_hp >= 5000:
 		$ColorRect/tairyoku_suuzi.text  = "超人"
-	elif p_hp <= 4999 and p_hp >= 2000:
+	elif _p_hp <= 4999 and _p_hp >= 2000:
 		$ColorRect/tairyoku_suuzi.text = "強人"
 	else:
 		$ColorRect/tairyoku_suuzi.text = "常人"
 
+
 func _on_sakihesusumu_pressed():
 	var ran = sougen[randi() % sougen.size()]
 	var random = randf()
-	if random < 0.1:
-		p_hp = (p_hp + 10)
-		$Panel/message.text = "- ここには何もないようだ -\n- 引き続き調査しよう -"
-		print(p_hp)
-	elif random < 0.8:
+	if random < 0.8:
 		return get_tree().change_scene_to(ran)
 	else:
-		p_hp = (p_hp + 10)
+		_p_hp = (_p_hp + 10)
 		$Panel/message.text = "- ここには何もないようだ -\n- 引き続き調査しよう -"
+
+
+func _on_home_pressed():
+	$"home/modoru?".show()
+	$"home/modoru?/Label".show()
+	$"home/modoru?/hai".show()
+	$"home/modoru?/iie".show()
+
+
+func _on_iie_pressed():
+	$"home/modoru?".hide()
+	$"home/modoru?/Label".hide()
+	$"home/modoru?/hai".hide()
+	$"home/modoru?/iie".hide()
+
+
+func _on_hai_pressed():
+	return get_tree().change_scene("res://scene/kyotenti.tscn")
+
+
+func _on_kakunin_pressed():
+	pass
+
+func _on_kakunin_toggled(_on_kakunin_pressed):
+	if(_on_kakunin_pressed):
+		$kakunin/kakunin_kontena.show()
+		$kakunin/kakunin_sita.show()
+	else:
+		$kakunin/kakunin_kontena.hide()
+		$kakunin/kakunin_sita.hide()
+
+
+func _on_sonota_pressed():
+	pass
+
+func _on_sonota_toggled(_on_sonota_pressed):
+	if(_on_sonota_pressed):
+		$sonota/onota_kontena.show()
+		$sonota/sonota_sita.show()
+	else:
+		$sonota/onota_kontena.hide()
+		$sonota/sonota_sita.hide()
+
+
+func _on_kiroku_pressed():
+	$sonota/onota_kontena/kiroku/savesuru.show()
+
+func _on_savesuru_pressed():
+	Player._save_suruyo()
+	$Panel/message.text = "今までの思い出を\n保存しときました。"
+	$sonota/onota_kontena.hide()
+	$sonota/sonota_sita.hide()
+

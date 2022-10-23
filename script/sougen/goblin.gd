@@ -19,29 +19,56 @@ onready var kakunin = $kakunin
 onready var nigeru = $nigeru
 onready var bunsyo = $Panel/message
 
-var p_name = Player.p_name
-var p_hp = Player.p_hp
-var p_attack = Player.p_attack
-var p_defense = Player.p_defense
-var p_hu_love = Player.p_hu_love
-var p_mo_love = Player.p_mo_love
-var p_dati = Player.p_dati
+var _p_name = Player._p_name
+var _p_hp = Player._p_hp
+var _p_attack = Player._p_attack
+var _p_defense = Player._p_defense
+var _p_kane = Player._p_kane
+var _p_hu_love = Player._p_hu_love
+var _p_mo_love = Player._p_mo_love
+var _p_dati = Player._p_dati
+var _p_kill = Player._p_kill
+var _playerdata = Player._playerdata
 
-var p_love : int
+var p_love : int = 30
 var hp := 5000
 var count = 0
 var damage_count = 0
 var kill_count = 0
+var dati_count = 0
+var dmg = {
+	"name" : namae,
+	"p_love" : p_love,
+	"kill_count" : kill_count,
+	"dati_count" : dati_count
+}
 
+
+func _save_datadayo():
+	_playerdata = {
+		"p_name" : _p_name,
+		"p_hp" : _p_hp,
+		"p_attack" : _p_attack,
+		"p_defense" : _p_defense,
+		"p_kane" : _p_kane,
+		"p_hu_love" : _p_hu_love,
+		"p_mo_love" : _p_mo_love,
+		"p_dati" : _p_dati,
+		"p_kill" : _p_kill
+	}
+	return _playerdata
 
 func _ready():
 	randomize()
 	mon_kankei()
 	hu_kankei()
-	bunsyo.text = namae + "と出会った。\nどうする？"
+	Player._load_suruyo()
+	_load_suruyo()
 	$ColorRect/name.text = namae
-	if kill_count >= 1:
-		saisyokara()
+	bunsyo.text = namae + "と出会った。\nどうする？"
+	if kill_count >= 1 or p_love <= 10:
+			kougekisareru()
+			saisyokara()
 	else:
 		saisyonogamen()
 
@@ -92,16 +119,39 @@ func p_kankei():
 
 
 func _on_koudou_pressed():
-	aisatu.show()
-	kaiwa.show()
-	okurimono.show()
-	batou.show()
+	pass
 
-
+func _on_koudou_toggled(_on_koudou_pressed):
+	if(_on_koudou_pressed):
+		aisatu.show()
+		kaiwa.show()
+		okurimono.show()
+		batou.show()
+		$sentou/kill.hide()
+		$sentou/utinomesu.hide()
+		$saikindo.hide()
+		$tomodati.hide()
+		$tugihe.hide()
+		$modoru.hide()
+	else:
+		sentou.show()
+		koudou.show()
+		kakunin.show()
+		nigeru.show()
+		aisatu.hide()
+		kaiwa.hide()
+		okurimono.hide()
+		batou.hide()
+		$sentou/kill.hide()
+		$sentou/utinomesu.hide()
+		$saikindo.hide()
+		$tomodati.hide()
+		$tugihe.hide()
+		$modoru.hide()
 
 func _on_aisatu_pressed():
 	var _word = ["こんにちは！いい天気ですね！", "わぁ、人間さんだ。こんにちは！", "こんにちは！"]
-	var _word2 = ["おや、また会いましたね。こんにちは！", p_name + "さん、こんにちは！"]
+	var _word2 = ["おや、また会いましたね。こんにちは！", _p_name + "さん、こんにちは！"]
 	var _word3 = ["…私に何か用ですか…？", "えっ…こ、こんにちは…", "あっ…どうも…"]
 	sentou.hide()
 	koudou.hide()
@@ -113,22 +163,21 @@ func _on_aisatu_pressed():
 	if p_love >= 50 and damage_count == 0 and kill_count == 0:
 		bunsyo.text = _random_word2
 		p_love = (p_love + 5)
-		p_mo_love = (p_mo_love + mo_love)
-		p_hu_love= (p_hu_love - hu_love)
+		_p_mo_love = (_p_mo_love + mo_love)
+		_p_hu_love= (_p_hu_love - hu_love)
 		count += 1
 	elif damage_count >= 1 or kill_count >= 1:
 		bunsyo.text = _random_word3
 		p_love = (p_love + 3)
-		p_mo_love = (p_mo_love + mo_love)
-		p_hu_love= (p_hu_love - hu_love)
+		_p_mo_love = (_p_mo_love + mo_love)
+		_p_hu_love= (_p_hu_love - hu_love)
 		count += 1
 	else:
 		bunsyo.text = _random_word
 		p_love = (p_love + 3)
-		p_mo_love = (p_mo_love + mo_love)
-		p_hu_love= (p_hu_love - hu_love)
+		_p_mo_love = (_p_mo_love + mo_love)
+		_p_hu_love= (_p_hu_love - hu_love)
 		count += 1
-	print(p_mo_love, p_love, count)
 	return saisyonogamen()
 
 
@@ -141,45 +190,76 @@ func _on_kaiwa_pressed():
 
 
 func _on_sentou_pressed():
-	aisatu.hide()
-	kaiwa.hide()
-	okurimono.hide()
-	batou.hide()
-	$sentou/kill.show()
-	$sentou/utinomesu.show()
+	pass
 
+func _on_sentou_toggled(_on_sentou_pressed):
+	if(_on_sentou_pressed):
+		aisatu.hide()
+		kaiwa.hide()
+		okurimono.hide()
+		batou.hide()
+		$saikindo.hide()
+		$tomodati.hide()
+		$tugihe.hide()
+		$modoru.hide()
+		$sentou/kill.show()
+		$sentou/utinomesu.show()
+	else:
+		aisatu.hide()
+		kaiwa.hide()
+		okurimono.hide()
+		batou.hide()
+		$sentou/kill.hide()
+		$sentou/utinomesu.hide()
+		$saikindo.hide()
+		$tomodati.hide()
+		$tugihe.hide()
+		$modoru.hide()
 
 
 func _on_kakunin_pressed():
-	pass # Replace with function body.
+	pass
+
+func _on_kakunin_toggled(_on_kakunin_pressed):
+	if(_on_kakunin_pressed):
+		$kakunin/kakunin_kontena.show()
+		$kakunin/kakunin_sita.show()
+	else:
+		$kakunin/kakunin_sita.hide()
+		$kakunin/kakunin_kontena.hide()
 
 
 func _on_saikindo_pressed():
-	var _word = [p_name + "さんとお話しできて嬉しいです！", "今日はパンが美味しく焼けたんですよ！", p_name + "さんは怖くないですが…\n他の人間さんもお見かけすると、\nちょっと怖いです。"]
+	var _word = [_p_name + "さんとお話しできて嬉しいです！", "今日はパンが美味しく焼けたんですよ！", _p_name + "さんは怖くないですが…\n他の人間さんもお見かけすると、\nちょっと怖いです。"]
 	var _word2 = ["えっ…まあ…そこそこ…", "あなたにお伝えする事はありません", "ひぃっ！"]
 	var _word3 = ["んー、どうなんでしょう？\nまぁ、いつも通りですよ", "今日を生きるだけで精一杯ですね、\nあははっ", "最近…\n…まぁまぁってとこですかね"]
 	var _ran_w = _word[randi() % _word.size()]
 	var _ran_w2 = _word2[randi() % _word2.size()]
 	var _ran_w3 = _word3[randi() % _word3.size()]
+	var random = randf()
 	if damage_count >= 1 or kill_count >= 1:
 		bunsyo.text = _ran_w2
 		p_love = (p_love + 2)
-		p_mo_love = (p_mo_love + (mo_love - 7))
-		p_hu_love = (p_hu_love - hu_love)
+		_p_mo_love = (_p_mo_love + (mo_love - 7))
+		_p_hu_love = (_p_hu_love - hu_love)
 		count += 1
 	elif p_love >= 50:
-		bunsyo.text = _ran_w
-		p_love = (p_love + 8)
-		p_mo_love = (p_mo_love + (mo_love - 5))
-		p_hu_love = (p_hu_love - hu_love)
-		count += 1
+		if random < 0.8:
+			bunsyo.text = _ran_w
+			p_love = (p_love + 8)
+			_p_mo_love = (_p_mo_love + (mo_love - 5))
+			_p_hu_love = (_p_hu_love - hu_love)
+			count += 1
+		else:
+			var kane = randi() % 510 + 10
+			_p_kane = _p_kane + kane
+			bunsyo.text = _p_name + "さん、これどうぞ！\n-" + namae + "から手渡された袋には" + kane + "が入っていましたよ -\n- ラッキー！ -"
 	else:
 		bunsyo.text = _ran_w3
 		p_love = (p_love + 5)
-		p_mo_love = (p_mo_love + (mo_love - 5))
-		p_hu_love = (p_hu_love - hu_love)
+		_p_mo_love = (_p_mo_love + (mo_love - 5))
+		_p_hu_love = (_p_hu_love - hu_love)
 		count += 1
-	print(p_mo_love, p_love, count)
 	return saisyonogamen()
 
 
@@ -202,7 +282,6 @@ func datigamen():
 	$Panel/message.text = "………"
 
 
-
 func _on_tomodati_pressed():
 	sentou.hide()
 	koudou.hide()
@@ -218,20 +297,23 @@ func _on_tomodati_pressed():
 	$tomodati.hide()
 	$modoru.show()
 	$ColorRect/dou.text = "友達"
-	p_dati.append_array(namae)
+	_p_dati.append(namae)
+	dati_count += 1
+	Player._save_suruyo()
+	_save_suruyo()
 	if damage_count == 0:
-		bunsyo.text = "勿論！\n" + p_name + "さんとお友達になれて、とっても嬉しいです！\nこれからもよろしくお願いします！"
+		bunsyo.text = "勿論！\n" + _p_name + "さんとお友達になれて、とっても嬉しいです！\nこれからもよろしくお願いします！"
 	else:
-		bunsyo.text = p_name + "さん…\nもう…あんな事…しないですよね…？\n…信じます…ね…。" 
+		bunsyo.text = _p_name + "さん…\nもう…あんな事…しないですよね…？\n…信じます…ね…。" 
 
 
 func _on_kill_pressed():
-	hp = hp - ((defense - p_attack) + p_love) * 100
+	hp = hp - ((defense - _p_attack) + p_love) * 100
 	p_love = (p_love - 20)
-	p_hu_love = (p_hu_love + hu_love)
-	p_mo_love = (p_mo_love - mo_love)
-	p_attack = (p_attack + randi() % 10)
-	p_defense = (p_defense + randi() % 10)
+	_p_hu_love = (_p_hu_love + hu_love)
+	_p_mo_love = (_p_mo_love - mo_love)
+	_p_attack = (_p_attack + randi() % 10)
+	_p_defense = (_p_defense + randi() % 10)
 	count += 1
 	damage_count += 1
 	var _word = ["酷い！何するんですか！", "痛い！やめてください！"]
@@ -241,7 +323,7 @@ func _on_kill_pressed():
 		saisyonogamen()
 	else:
 		dead()
-	print(p_attack,p_defense)
+
 
 func dead():
 	sentou.hide()
@@ -260,10 +342,13 @@ func dead():
 	$tugihe.show()
 	bunsyo.text = "ひ…酷い…痛い…"
 	p_love = 0
-	p_hu_love = (p_hu_love - hu_love)
-	p_mo_love = (p_mo_love - mo_love)
+	_p_hu_love = (_p_hu_love - hu_love)
+	_p_mo_love = (_p_mo_love - mo_love)
 	damage_count += 1
 	kill_count += 1
+	_p_kill.append(namae)
+	Player._save_suruyo()
+	_save_suruyo()
 
 
 func _on_tugihe_pressed():
@@ -289,29 +374,53 @@ func _on_tugihe_pressed():
 
 
 func mon_kankei():
-	if p_mo_love >= 350:
-		$ColorRect/mon_kankei2.text = "イイ感じ"
-	elif p_mo_love <= 349 and p_mo_love >= 100:
-		$ColorRect/mon_kankei2.text = "そこそこな感じ"
+	if _p_mo_love >= 350:
+		$ColorRect2/mon_zyoutai2.text = "イイ感じ"
+	elif _p_mo_love <= 349 and _p_mo_love >= 100:
+		$ColorRect2/mon_zyoutai2.text = "そこそこな感じ"
 	else:
-		$ColorRect/mon_kankei2.text = "ヤバい感じ"
+		$ColorRect2/mon_zyoutai2.text = "ヤバい感じ"
 
 func hu_kankei():
-	if p_hu_love >= 350:
-		$ColorRect/hu_kankei2.text  = "イイ感じ"
-	elif p_hu_love <= 349 and p_hu_love >= 100:
-		$ColorRect/hu_kankei2.text = "そこそこな感じ"
+	if _p_hu_love >= 350:
+		$ColorRect2/hu_zyoutai2.text  = "イイ感じ"
+	elif _p_hu_love <= 349 and _p_hu_love >= 100:
+		$ColorRect2/hu_zyoutai2.text = "そこそこな感じ"
 	else:
-		$ColorRect/hu_kankei2.text = "ヤバい感じ"
+		$ColorRect2/hu_zyoutai2.text = "ヤバい感じ"
+
+func p_kinryoku():
+	if _p_attack >= 500:
+		$ColorRect2/kinryoku_suuzi.text  = "ゴリマッチョ"
+	elif _p_attack <= 499 and _p_attack >= 200:
+		$ColorRect2/kinryoku_suuzi.text = "細マッチョ"
+	else:
+		$ColorRect2/kinryoku_suuzi.text = "普通"
+
+func p_taisei():
+	if _p_defense >= 500:
+		$ColorRect2/taisei_suuzi.text  = "金属"
+	elif _p_defense <= 499 and _p_defense >= 200:
+		$ColorRect2/taisei_suuzi.text = "布"
+	else:
+		$ColorRect2/taisei_suuzi.text = "紙"
+
+func p_tairyoku():
+	if _p_hp >= 5000:
+		$ColorRect2/tairyoku_suuzi.text  = "超人"
+	elif _p_hp <= 4999 and _p_hp >= 2000:
+		$ColorRect2/tairyoku_suuzi.text = "強人"
+	else:
+		$ColorRect2/tairyoku_suuzi.text = "常人"
 
 
 func _on_utinomesu_pressed():
-	hp = hp - ((defense - p_attack) + p_love)
+	hp = hp - ((defense - _p_attack) + p_love)
 	p_love = (p_love - 10)
-	p_hu_love = (p_hu_love + hu_love)
-	p_mo_love = (p_mo_love - mo_love)
-	p_attack = (p_attack + randi() % 5)
-	p_defense = (p_defense + randi() % 5)
+	_p_hu_love = (_p_hu_love + hu_love)
+	_p_mo_love = (_p_mo_love - mo_love)
+	_p_attack = (_p_attack + randi() % 5)
+	_p_defense = (_p_defense + randi() % 5)
 	count += 1
 	damage_count += 1
 	var _word = ["えっ…", "えっ…なんですか…？", "やめてください！"]
@@ -321,12 +430,11 @@ func _on_utinomesu_pressed():
 		saisyonogamen()
 	else:
 		dead()
-	print(p_attack,p_defense)
 
 
 func _on_batou_pressed():
 	var _word = ["…あなたは酷い人間だ…", "やっぱり人間は酷い生き物なんですね", "(早く酷い人間が来たってオーガさんに報告しなきゃ…)"]
-	var _word2 = ["えっ…" + p_name + "さん…\n急にどうしたんですか…？", p_name + "さん…じょ、冗談きついですよー…"]
+	var _word2 = ["えっ…" + _p_name + "さん…\n急にどうしたんですか…？", _p_name + "さん…じょ、冗談きついですよー…"]
 	var _word3 = ["ちょっと、何なんですか", "…そんな事言わなくても…", "………"]
 	sentou.hide()
 	koudou.hide()
@@ -338,37 +446,85 @@ func _on_batou_pressed():
 	if p_love >= 50:
 		bunsyo.text = _random_word2
 		p_love = (p_love - 3)
-		p_mo_love = (p_mo_love - 3)
-		p_hu_love= (p_hu_love + hu_love)
+		_p_mo_love = (_p_mo_love - 3)
+		_p_hu_love= (_p_hu_love + hu_love)
 		count += 1
 		damage_count += 1
 	elif p_love >= 10 and p_love <= 49:
 		bunsyo.text = _random_word3
 		p_love = (p_love - 3)
-		p_mo_love = (p_mo_love - 3)
-		p_hu_love= (p_hu_love + hu_love)
+		_p_mo_love = (_p_mo_love - 3)
+		_p_hu_love= (_p_hu_love + hu_love)
 		count += 1
 		damage_count += 1
 	else:
 		bunsyo.text = _random_word
 		p_love = (p_love - 3)
-		p_mo_love = (p_mo_love - 3)
-		p_hu_love= (p_hu_love + hu_love)
+		_p_mo_love = (_p_mo_love - 3)
+		_p_hu_love= (_p_hu_love + hu_love)
 		count += 1
 		damage_count += 1
-	print(p_mo_love, p_love, count)
 	return saisyonogamen()
 
 func saisyokara():
-	hp = 5000
+	hp = max_hp
 	count = 0
 	damage_count = 0
 
 
 func _on_modoru_pressed():
+	Player._save_suruyo()
+	_save_suruyo()
 	return get_tree().change_scene("res://scene/sougen/sougen_area.tscn")
 
 
 func _on_nigeru_pressed():
 	return get_tree().change_scene("res://scene/sougen/sougen_area.tscn")
+
+
+func _save_suruyo():
+	var _file = File.new()
+	_file.open("user://dmg.save",File.WRITE)
+	_file.store_var(dmg, true)
+	_file.close()
+
+func _load_suruyo():
+	var _file = File.new()
+	if not _file.file_exists("user://dmg.save"):
+		return _save_suruyo()
+	_file.open("user://dmg.save",File.READ)
+	dmg = _file.get_var(true)
+	if typeof(dmg) == TYPE_DICTIONARY:
+		p_love = dmg.p_love
+		kill_count = dmg.kill_count
+		dati_count = dmg.dati_count
+	else:
+		printerr("nakattayo")
+	_file.close()
+
+func kougekisareru():
+	_p_hp = _p_hp - ((attack - _p_defense) / randi() % 10)
+	if _p_hp <= 0:
+			sentou.hide()
+			koudou.hide()
+			kakunin.hide()
+			nigeru.hide()
+			aisatu.hide()
+			kaiwa.hide()
+			okurimono.hide()
+			batou.hide()
+			$sentou/kill.hide()
+			$sentou/utinomesu.hide()
+			$saikindo.hide()
+			$tomodati.hide()
+			$modoru.hide()
+			$kyoten.show()
+			bunsyo.text = "- あなたは死んでしまいました -\n- 次は頑張ってください！ -"
+	else:
+		saisyonogamen()
+
+
+func _on_kyoten_pressed():
+	return get_tree().change_scene("res://scene/kyotenti.tscn")
+
 
