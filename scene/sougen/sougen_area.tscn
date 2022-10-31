@@ -1,17 +1,30 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://data/font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://script/sougen/sougen_area.gd" type="Script" id=2]
 [ext_resource path="res://data/image/bg/wood_sun.png" type="Texture" id=3]
-[ext_resource path="res://script/player.gd" type="Script" id=6]
+[ext_resource path="res://data/font_tiisame.tres" type="DynamicFont" id=4]
+[ext_resource path="res://script/syozihin.gd" type="Script" id=5]
+[ext_resource path="res://script/status.gd" type="Script" id=6]
+[ext_resource path="res://data/image/tyousasyo/表紙.jpg" type="Texture" id=7]
+[ext_resource path="res://data/image/tyousasyo/sougen/gos_no.jpg" type="Texture" id=8]
+[ext_resource path="res://data/image/tyousasyo/sougen/sli_no.jpg" type="Texture" id=9]
+[ext_resource path="res://data/image/tyousasyo/sougen/mmz_no.jpg" type="Texture" id=10]
+[ext_resource path="res://data/image/tyousasyo/sougen/spi_gensou.jpg" type="Texture" id=11]
+[ext_resource path="res://data/image/tyousasyo/sougen/srag_no.jpg" type="Texture" id=12]
+[ext_resource path="res://data/image/tyousasyo/sougen/bee_no.jpg" type="Texture" id=13]
+[ext_resource path="res://data/image/tyousasyo/sougen/spi_seizyaku.jpg" type="Texture" id=14]
+[ext_resource path="res://data/image/tyousasyo/sougen/kou_no.jpg" type="Texture" id=15]
+[ext_resource path="res://data/image/tyousasyo/sougen/gob_no.jpg" type="Texture" id=16]
+[ext_resource path="res://data/image/tyousasyo/sougen/oga_no.jpg" type="Texture" id=17]
+[ext_resource path="res://data/image/tyousasyo/sougen/spi_doki.jpg" type="Texture" id=18]
+[ext_resource path="res://script/tyousasyo.gd" type="Script" id=19]
+[ext_resource path="res://data/font_tiiiiii.tres" type="DynamicFont" id=20]
 
 [node name="sougen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
-
-[node name="player" type="Node" parent="."]
-script = ExtResource( 6 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -21,9 +34,10 @@ texture = ExtResource( 3 )
 expand = true
 
 [node name="sakihesusumu" type="Button" parent="."]
-margin_top = 1050.0
-margin_right = 600.0
-margin_bottom = 1130.0
+margin_left = 215.0
+margin_top = 508.0
+margin_right = 815.0
+margin_bottom = 588.0
 custom_fonts/font = ExtResource( 1 )
 text = "先に進む"
 
@@ -32,10 +46,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -300.0
-margin_top = 280.0
-margin_right = 300.0
-margin_bottom = 427.0
+margin_left = -432.0
+margin_top = 83.0
+margin_right = 408.0
+margin_bottom = 203.0
 
 [node name="message" type="Label" parent="Panel"]
 anchor_left = 0.0116667
@@ -49,134 +63,146 @@ margin_bottom = 13.5
 custom_fonts/font = ExtResource( 1 )
 text = "- 調査を始めよう -"
 
-[node name="home" type="Button" parent="."]
-margin_left = 15.0
-margin_top = 1140.0
-margin_right = 195.0
-margin_bottom = 1220.0
-custom_fonts/font = ExtResource( 1 )
-text = "拠点地へ戻る"
-
-[node name="modoru\?" type="Panel" parent="home"]
-visible = false
-anchor_left = 1.617
-anchor_top = -6.331
-anchor_right = 1.617
-anchor_bottom = -6.331
-margin_left = -180.06
-margin_top = -89.52
-margin_right = 179.94
-margin_bottom = 89.48
-
-[node name="Label" type="Label" parent="home/modoru\?"]
-visible = false
-margin_left = 2.0
-margin_top = 8.0
-margin_right = 357.0
-margin_bottom = 56.0
-custom_fonts/font = ExtResource( 1 )
-text = "拠点地へ戻りますか？"
-align = 1
-
-[node name="hai" type="Button" parent="home/modoru\?"]
-visible = false
-margin_left = 18.0
-margin_top = 120.0
-margin_right = 153.0
-margin_bottom = 163.0
-custom_fonts/font = ExtResource( 1 )
-text = "はい"
-
-[node name="iie" type="Button" parent="home/modoru\?"]
-visible = false
-margin_left = 204.0
-margin_top = 120.0
-margin_right = 339.0
-margin_bottom = 163.0
-custom_fonts/font = ExtResource( 1 )
-text = "いいえ"
-
 [node name="kakunin" type="Button" parent="."]
-margin_left = 210.0
-margin_top = 1140.0
-margin_right = 390.0
-margin_bottom = 1220.0
+margin_left = 14.0
+margin_top = 508.0
+margin_right = 194.0
+margin_bottom = 588.0
 rect_pivot_offset = Vector2( -844, -712 )
 custom_fonts/font = ExtResource( 1 )
-toggle_mode = true
 text = "確認"
 
-[node name="kakunin_sita" type="ColorRect" parent="kakunin"]
-visible = false
-margin_left = -6.0
-margin_top = -150.0
-margin_right = 286.0
-color = Color( 0.52549, 0.509804, 0.509804, 0.745098 )
-
-[node name="kakunin_kontena" type="VBoxContainer" parent="kakunin"]
-visible = false
-margin_top = -143.0
-margin_right = 280.0
-margin_bottom = -6.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-alignment = 1
-
-[node name="dougu" type="Button" parent="kakunin/kakunin_kontena"]
-margin_right = 280.0
-margin_bottom = 43.0
-size_flags_horizontal = 3
-size_flags_vertical = 2
-size_flags_stretch_ratio = 0.0
-custom_fonts/font = ExtResource( 1 )
-text = "持ち物"
-
-[node name="status" type="Button" parent="kakunin/kakunin_kontena"]
-margin_top = 47.0
-margin_right = 280.0
-margin_bottom = 90.0
-size_flags_horizontal = 3
-size_flags_vertical = 2
-custom_fonts/font = ExtResource( 1 )
-text = "自分の事"
-
-[node name="tyousasyo" type="Button" parent="kakunin/kakunin_kontena"]
-margin_top = 94.0
-margin_right = 280.0
-margin_bottom = 137.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = ExtResource( 1 )
-text = "調査書"
-
 [node name="sonota" type="Button" parent="."]
-margin_left = 405.0
-margin_top = 1140.0
-margin_right = 585.0
-margin_bottom = 1220.0
+margin_left = 830.0
+margin_top = 508.0
+margin_right = 1010.0
+margin_bottom = 588.0
 custom_fonts/font = ExtResource( 1 )
-toggle_mode = true
 text = "その他"
 
-[node name="sonota_sita" type="ColorRect" parent="sonota"]
-visible = false
-margin_left = -100.0
-margin_top = -106.0
-margin_right = 192.0
-margin_bottom = -3.0
-color = Color( 0.52549, 0.509804, 0.509804, 0.745098 )
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 10.0
+margin_top = 4.0
+margin_right = 1015.0
+margin_bottom = 113.0
+color = Color( 0.529412, 0.486275, 0.486275, 0.466667 )
 
-[node name="onota_kontena" type="VBoxContainer" parent="sonota"]
-visible = false
-margin_left = -95.0
-margin_top = -100.0
-margin_right = 185.0
-margin_bottom = -10.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-alignment = 1
+[node name="pnamae" type="Label" parent="ColorRect"]
+margin_left = 7.0
+margin_top = 5.0
+margin_right = 240.0
+margin_bottom = 42.0
+custom_fonts/font = ExtResource( 1 )
+align = 1
 
-[node name="settei" type="Button" parent="sonota/onota_kontena"]
+[node name="mon_zyoutai" type="Label" parent="ColorRect"]
+margin_left = 10.0
+margin_top = 60.0
+margin_right = 110.0
+margin_bottom = 100.0
+custom_fonts/font = ExtResource( 1 )
+text = "怪物界："
+
+[node name="mon_zyoutai2" type="Label" parent="ColorRect"]
+margin_left = 140.0
+margin_top = 60.0
+margin_right = 270.0
+margin_bottom = 100.0
+custom_fonts/font = ExtResource( 1 )
+
+[node name="hu_zyoutai" type="Label" parent="ColorRect"]
+margin_left = 320.0
+margin_top = 60.0
+margin_right = 420.0
+margin_bottom = 100.0
+custom_fonts/font = ExtResource( 1 )
+text = "人間界："
+
+[node name="hu_zyoutai2" type="Label" parent="ColorRect"]
+margin_left = 425.0
+margin_top = 60.0
+margin_right = 575.0
+margin_bottom = 100.0
+custom_fonts/font = ExtResource( 1 )
+
+[node name="tairyoku" type="Label" parent="ColorRect"]
+margin_left = 250.0
+margin_top = 5.0
+margin_right = 325.0
+margin_bottom = 45.0
+custom_fonts/font = ExtResource( 1 )
+text = "体力："
+
+[node name="tairyoku_suuzi" type="Label" parent="ColorRect"]
+margin_left = 325.0
+margin_top = 5.0
+margin_right = 425.0
+margin_bottom = 45.0
+custom_fonts/font = ExtResource( 1 )
+
+[node name="kinryoku" type="Label" parent="ColorRect"]
+margin_left = 460.0
+margin_top = 5.0
+margin_right = 535.0
+margin_bottom = 45.0
+custom_fonts/font = ExtResource( 1 )
+text = "筋力："
+
+[node name="kinryoku_suuzi" type="Label" parent="ColorRect"]
+margin_left = 530.0
+margin_top = 5.0
+margin_right = 630.0
+margin_bottom = 45.0
+custom_fonts/font = ExtResource( 1 )
+
+[node name="taisei" type="Label" parent="ColorRect"]
+margin_left = 680.0
+margin_top = 5.0
+margin_right = 755.0
+margin_bottom = 45.0
+custom_fonts/font = ExtResource( 1 )
+text = "耐性："
+
+[node name="taisei_suuzi" type="Label" parent="ColorRect"]
+margin_left = 760.0
+margin_top = 5.0
+margin_right = 860.0
+margin_bottom = 45.0
+custom_fonts/font = ExtResource( 1 )
+
+[node name="areanamae" type="Label" parent="ColorRect"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 297.5
+margin_top = 60.0
+margin_right = 368.5
+margin_bottom = 102.0
+custom_fonts/font = ExtResource( 1 )
+text = "草原"
+align = 1
+
+[node name="areanamae2" type="Label" parent="ColorRect"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 177.5
+margin_top = 60.0
+margin_right = 277.5
+margin_bottom = 102.0
+custom_fonts/font = ExtResource( 1 )
+text = "エリア："
+align = 1
+
+[node name="settei" type="Popup" parent="."]
+anchor_left = -1.644
+anchor_top = -2.75
+anchor_right = -1.644
+anchor_bottom = -2.75
+margin_left = 2064.46
+margin_top = 1882.0
+margin_right = 2350.46
+margin_bottom = 2025.0
+
+[node name="settei" type="Button" parent="settei"]
 margin_right = 280.0
 margin_bottom = 43.0
 size_flags_horizontal = 3
@@ -185,7 +211,7 @@ size_flags_stretch_ratio = 0.0
 custom_fonts/font = ExtResource( 1 )
 text = "設定"
 
-[node name="kiroku" type="Button" parent="sonota/onota_kontena"]
+[node name="kiroku" type="Button" parent="settei"]
 margin_top = 47.0
 margin_right = 280.0
 margin_bottom = 90.0
@@ -194,150 +220,1374 @@ size_flags_vertical = 2
 custom_fonts/font = ExtResource( 1 )
 text = "記録"
 
-[node name="savesuru" type="Panel" parent="sonota/onota_kontena/kiroku"]
-visible = false
+[node name="home" type="Button" parent="settei"]
+margin_top = 96.0
+margin_right = 280.0
+margin_bottom = 139.0
+custom_fonts/font = ExtResource( 1 )
+text = "拠点地へ戻る"
+
+[node name="modoru\?" type="Panel" parent="settei/home"]
+margin_left = -38.0
+margin_top = -100.0
+margin_right = 323.0
+margin_bottom = 78.0
+
+[node name="Label" type="Label" parent="settei/home/modoru\?"]
+margin_left = 41.0
+margin_top = 10.0
+margin_right = 317.0
+margin_bottom = 82.0
+custom_fonts/font = ExtResource( 1 )
+text = "拠点地へ戻りますか？"
+align = 1
+
+[node name="hai" type="Button" parent="settei/home/modoru\?"]
+margin_left = 5.0
+margin_top = 93.0
+margin_right = 170.0
+margin_bottom = 173.0
+custom_fonts/font = ExtResource( 1 )
+text = "はい"
+
+[node name="iie" type="Button" parent="settei/home/modoru\?"]
+margin_left = 191.0
+margin_top = 93.0
+margin_right = 356.0
+margin_bottom = 173.0
+custom_fonts/font = ExtResource( 1 )
+text = "いいえ"
+
+[node name="Popup" type="Popup" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -132.0
+margin_top = -59.0
+margin_right = 152.0
+margin_bottom = 79.0
+
+[node name="dougu" type="Button" parent="Popup"]
+margin_right = 280.0
+margin_bottom = 43.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.0
+custom_fonts/font = ExtResource( 1 )
+text = "持ち物"
+
+[node name="status" type="Button" parent="Popup"]
+margin_top = 47.0
+margin_right = 280.0
+margin_bottom = 90.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+custom_fonts/font = ExtResource( 1 )
+text = "自分の事"
+
+[node name="tyousasyo" type="Button" parent="Popup"]
+margin_top = 94.0
+margin_right = 280.0
+margin_bottom = 137.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "調査書"
+
+[node name="savesuru" type="Popup" parent="."]
 anchor_left = 1.617
 anchor_top = -6.331
 anchor_right = 1.617
 anchor_bottom = -6.331
-margin_left = -640.76
-margin_top = -235.767
-margin_right = -280.76
-margin_bottom = -56.767
+margin_left = -1311.81
+margin_top = 4026.6
+margin_right = -951.808
+margin_bottom = 4205.6
 
-[node name="Label" type="Label" parent="sonota/onota_kontena/kiroku/savesuru"]
-margin_left = 2.0
-margin_top = 8.0
-margin_right = 357.0
-margin_bottom = 56.0
+[node name="Panel" type="Panel" parent="savesuru"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -180.0
+margin_right = 181.0
+margin_bottom = 178.0
+
+[node name="Label" type="Label" parent="savesuru"]
+anchor_left = 0.507
+anchor_right = 0.507
+margin_left = -173.52
+margin_top = 5.0
+margin_right = 170.48
+margin_bottom = 83.0
 custom_fonts/font = ExtResource( 1 )
 text = "今までの思い出を
 保存しますか？"
 align = 1
 
-[node name="savesuru" type="Button" parent="sonota/onota_kontena/kiroku/savesuru"]
-margin_left = 18.0
-margin_top = 120.0
-margin_right = 153.0
-margin_bottom = 163.0
+[node name="savesuru" type="Button" parent="savesuru"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -175.0
+margin_top = 92.0
+margin_right = -10.0
+margin_bottom = 172.0
 custom_fonts/font = ExtResource( 1 )
 text = "はい"
 
-[node name="savesinai" type="Button" parent="sonota/onota_kontena/kiroku/savesuru"]
-margin_left = 204.0
-margin_top = 120.0
-margin_right = 339.0
-margin_bottom = 163.0
+[node name="savesinai" type="Button" parent="savesuru"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 10.0
+margin_top = 92.0
+margin_right = 175.0
+margin_bottom = 172.0
 custom_fonts/font = ExtResource( 1 )
 text = "いいえ"
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = 8.0
-margin_top = 144.0
-margin_right = 592.0
-margin_bottom = 253.0
+[node name="item" type="Popup" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="item" type="Control" parent="item"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="TextureRect" type="ColorRect" parent="item/item"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 6.10352e-05
+color = Color( 0.180392, 0.180392, 0.180392, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="item/item"]
+margin_left = 15.0
+margin_top = 10.0
+margin_right = 1010.0
+margin_bottom = 464.0
 color = Color( 0.529412, 0.486275, 0.486275, 0.466667 )
 
-[node name="pnamae" type="Label" parent="ColorRect"]
-margin_left = 7.0
-margin_top = 5.0
-margin_right = 107.0
-margin_bottom = 35.0
+[node name="areanamae" type="Label" parent="item/item/ColorRect"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -484.5
+margin_top = 14.0
+margin_right = -79.5
+margin_bottom = 56.0
+custom_fonts/font = ExtResource( 1 )
+text = "所持品"
+align = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="item/item/ColorRect"]
+margin_left = 26.0
+margin_top = 62.0
+margin_right = 504.0
+margin_bottom = 432.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="item/item/ColorRect/ScrollContainer"]
+margin_right = 478.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="item/item/ColorRect/ScrollContainer/VBoxContainer"]
+margin_right = 478.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+flat = true
+expand_icon = true
+
+[node name="item_modoru" type="Button" parent="item/item"]
+margin_left = 226.0
+margin_top = 508.0
+margin_right = 796.0
+margin_bottom = 588.0
+custom_fonts/font = ExtResource( 1 )
+text = "戻る"
+
+[node name="Panel" type="Panel" parent="item/item"]
+margin_left = 546.0
+margin_top = 20.0
+margin_right = 1001.0
+margin_bottom = 449.0
+
+[node name="TextureRect" type="TextureRect" parent="item/item/Panel"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 160.0
+margin_bottom = 160.0
+expand = true
+stretch_mode = 5
+
+[node name="namae" type="Label" parent="item/item/Panel"]
+margin_left = 161.0
+margin_top = 7.0
+margin_right = 449.0
+margin_bottom = 48.0
 custom_fonts/font = ExtResource( 1 )
 
-[node name="mon_zyoutai" type="Label" parent="ColorRect"]
-margin_left = 7.0
-margin_top = 55.0
-margin_right = 107.0
-margin_bottom = 92.0
-custom_fonts/font = ExtResource( 1 )
-text = "怪物界："
+[node name="setumei" type="RichTextLabel" parent="item/item/Panel"]
+margin_left = 10.0
+margin_top = 166.0
+margin_right = 447.0
+margin_bottom = 306.0
+custom_fonts/mono_font = ExtResource( 4 )
+custom_fonts/bold_italics_font = ExtResource( 4 )
+custom_fonts/italics_font = ExtResource( 4 )
+custom_fonts/bold_font = ExtResource( 4 )
+custom_fonts/normal_font = ExtResource( 4 )
 
-[node name="mon_zyoutai2" type="Label" parent="ColorRect"]
-margin_left = 110.0
-margin_top = 55.0
-margin_right = 240.0
-margin_bottom = 92.0
-custom_fonts/font = ExtResource( 1 )
+[node name="status" type="Popup" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
 
-[node name="hu_zyoutai" type="Label" parent="ColorRect"]
-margin_left = 250.0
-margin_top = 55.0
-margin_right = 350.0
-margin_bottom = 92.0
-custom_fonts/font = ExtResource( 1 )
-text = "人間界："
+[node name="status" type="Control" parent="status"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
 
-[node name="hu_zyoutai2" type="Label" parent="ColorRect"]
-margin_left = 360.0
-margin_top = 55.0
-margin_right = 510.0
-margin_bottom = 92.0
-custom_fonts/font = ExtResource( 1 )
+[node name="TextureRect" type="ColorRect" parent="status/status"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 6.10352e-05
+color = Color( 0.180392, 0.180392, 0.180392, 1 )
 
-[node name="tairyoku" type="Label" parent="ColorRect"]
-margin_left = 120.0
-margin_top = 5.0
-margin_right = 171.0
-margin_bottom = 42.0
+[node name="ColorRect" type="ColorRect" parent="status/status"]
+margin_left = 15.0
+margin_top = 10.0
+margin_right = 1010.0
+margin_bottom = 464.0
+color = Color( 0.529412, 0.486275, 0.486275, 0.466667 )
+
+[node name="areanamae" type="Label" parent="status/status/ColorRect"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -484.5
+margin_top = 14.0
+margin_right = -79.5
+margin_bottom = 56.0
+custom_fonts/font = ExtResource( 1 )
+align = 1
+
+[node name="tairyoku" type="Label" parent="status/status/ColorRect"]
+margin_left = 40.0
+margin_top = 70.0
+margin_right = 115.0
+margin_bottom = 55.0
 custom_fonts/font = ExtResource( 1 )
 text = "体力："
 
-[node name="tairyoku_suuzi" type="Label" parent="ColorRect"]
-margin_left = 190.0
-margin_top = 5.0
-margin_right = 240.0
-margin_bottom = 42.0
+[node name="tairyoku_suuzi" type="Label" parent="status/status/ColorRect/tairyoku"]
+margin_left = 260.0
+margin_right = 225.0
 custom_fonts/font = ExtResource( 1 )
+align = 1
 
-[node name="kinryoku" type="Label" parent="ColorRect"]
-margin_left = 250.0
-margin_top = 5.0
-margin_right = 325.0
-margin_bottom = 42.0
+[node name="kinryoku" type="Label" parent="status/status/ColorRect"]
+margin_left = 40.0
+margin_top = 110.0
+margin_right = 115.0
+margin_bottom = 100.0
 custom_fonts/font = ExtResource( 1 )
 text = "筋力："
 
-[node name="kinryoku_suuzi" type="Label" parent="ColorRect"]
-margin_left = 330.0
-margin_top = 5.0
-margin_right = 380.0
-margin_bottom = 42.0
+[node name="kinryoku_suuzi" type="Label" parent="status/status/ColorRect/kinryoku"]
+margin_left = 260.0
+margin_right = 225.0
 custom_fonts/font = ExtResource( 1 )
+align = 1
 
-[node name="taisei" type="Label" parent="ColorRect"]
-margin_left = 410.0
-margin_top = 5.0
-margin_right = 485.0
-margin_bottom = 42.0
+[node name="taisei" type="Label" parent="status/status/ColorRect"]
+margin_left = 40.0
+margin_top = 150.0
+margin_right = 115.0
+margin_bottom = 140.0
 custom_fonts/font = ExtResource( 1 )
 text = "耐性："
 
-[node name="taisei_suuzi" type="Label" parent="ColorRect"]
-margin_left = 500.0
-margin_top = 5.0
-margin_right = 550.0
-margin_bottom = 42.0
+[node name="taisei_suuzi" type="Label" parent="status/status/ColorRect/taisei"]
+margin_left = 260.0
+margin_right = 225.0
 custom_fonts/font = ExtResource( 1 )
-
-[node name="areanamae" type="Label" parent="ColorRect"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -35.0
-margin_top = -81.0
-margin_right = 36.0
-margin_bottom = -39.0
-custom_fonts/font = ExtResource( 1 )
-text = "草原"
 align = 1
 
+[node name="syozikin" type="Label" parent="status/status/ColorRect"]
+margin_left = 40.0
+margin_top = 190.0
+margin_right = 140.0
+margin_bottom = 180.0
+custom_fonts/font = ExtResource( 1 )
+text = "所持金："
+
+[node name="syozikin_suuzi" type="Label" parent="status/status/ColorRect/syozikin"]
+margin_left = 260.0
+margin_right = 225.0
+custom_fonts/font = ExtResource( 1 )
+align = 1
+
+[node name="mon_zyoutai" type="Label" parent="status/status/ColorRect"]
+margin_left = 40.0
+margin_top = 230.0
+margin_right = 140.0
+margin_bottom = 230.0
+custom_fonts/font = ExtResource( 1 )
+text = "怪物界："
+
+[node name="mon_zyoutai2" type="Label" parent="status/status/ColorRect/mon_zyoutai"]
+margin_left = 260.0
+margin_right = 225.0
+custom_fonts/font = ExtResource( 1 )
+align = 1
+
+[node name="hu_zyoutai" type="Label" parent="status/status/ColorRect"]
+margin_left = 40.0
+margin_top = 270.0
+margin_right = 140.0
+margin_bottom = 275.0
+custom_fonts/font = ExtResource( 1 )
+text = "人間界："
+
+[node name="hu_zyoutai2" type="Label" parent="status/status/ColorRect/hu_zyoutai"]
+margin_left = 260.0
+margin_right = 225.0
+custom_fonts/font = ExtResource( 1 )
+align = 1
+
+[node name="dati_mon" type="Label" parent="status/status/ColorRect"]
+margin_left = 40.0
+margin_top = 310.0
+margin_right = 270.0
+margin_bottom = 320.0
+custom_fonts/font = ExtResource( 1 )
+text = "ダチになった怪物："
+
+[node name="dati_mon2" type="Label" parent="status/status/ColorRect/dati_mon"]
+margin_left = 260.0
+margin_right = 225.0
+custom_fonts/font = ExtResource( 1 )
+align = 1
+
+[node name="dati_hu" type="Label" parent="status/status/ColorRect"]
+margin_left = 40.0
+margin_top = 350.0
+margin_right = 265.0
+margin_bottom = 360.0
+custom_fonts/font = ExtResource( 1 )
+text = "ダチになった人間："
+
+[node name="dati_hu2" type="Label" parent="status/status/ColorRect/dati_hu"]
+margin_left = 260.0
+margin_right = 225.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 1 )
+align = 1
+
+[node name="katemon" type="Label" parent="status/status/ColorRect"]
+margin_left = 540.0
+margin_top = 310.0
+margin_right = 265.0
+custom_fonts/font = ExtResource( 1 )
+text = "カテになった怪物："
+
+[node name="katemon2" type="Label" parent="status/status/ColorRect/katemon"]
+margin_left = 260.0
+margin_right = 225.0
+custom_fonts/font = ExtResource( 1 )
+align = 1
+
+[node name="katehu" type="Label" parent="status/status/ColorRect"]
+margin_left = 540.0
+margin_top = 350.0
+margin_right = 265.0
+custom_fonts/font = ExtResource( 1 )
+text = "カテになった人間："
+
+[node name="katehu2" type="Label" parent="status/status/ColorRect/katehu"]
+margin_left = 260.0
+margin_right = 225.0
+custom_fonts/font = ExtResource( 1 )
+align = 1
+
+[node name="status_modoru" type="Button" parent="status/status"]
+margin_left = 226.0
+margin_top = 508.0
+margin_right = 796.0
+margin_bottom = 588.0
+custom_fonts/font = ExtResource( 1 )
+text = "戻る"
+
+[node name="tyousasyo" type="Popup" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="tyousasyo" type="Control" parent="tyousasyo"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 19 )
+
+[node name="TextureRect" type="ColorRect" parent="tyousasyo/tyousasyo"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 6.10352e-05
+color = Color( 0.180392, 0.180392, 0.180392, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="tyousasyo/tyousasyo"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -489.0
+color = Color( 0.529412, 0.486275, 0.486275, 0.466667 )
+
+[node name="tyousasyodayo" type="Label" parent="tyousasyo/tyousasyo/ColorRect"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -77.5
+margin_top = 10.0
+margin_right = 80.5
+margin_bottom = 52.0
+custom_fonts/font = ExtResource( 1 )
+text = "調査書"
+align = 1
+
+[node name="TabContainer" type="TabContainer" parent="tyousasyo/tyousasyo/ColorRect"]
+margin_left = 5.0
+margin_top = 52.0
+margin_right = 529.0
+margin_bottom = 469.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 20 )
+
+[node name="草原" type="ScrollContainer" parent="tyousasyo/tyousasyo/ColorRect/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 41.0
+margin_right = -4.0
+margin_bottom = -4.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+follow_focus = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/草原"]
+margin_right = 516.0
+margin_bottom = 810.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="gob_no" type="Button" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/草原/VBoxContainer"]
+margin_right = 504.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 0, 70 )
+rect_clip_content = true
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "ゴブリン"
+icon = ExtResource( 16 )
+flat = true
+expand_icon = true
+
+[node name="kou_no" type="Button" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/草原/VBoxContainer"]
+margin_top = 74.0
+margin_right = 504.0
+margin_bottom = 144.0
+rect_min_size = Vector2( 0, 70 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "コウモリ"
+icon = ExtResource( 15 )
+flat = true
+expand_icon = true
+
+[node name="sl_no" type="Button" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/草原/VBoxContainer"]
+margin_top = 148.0
+margin_right = 504.0
+margin_bottom = 218.0
+rect_min_size = Vector2( 0, 70 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "スライム"
+icon = ExtResource( 9 )
+flat = true
+expand_icon = true
+
+[node name="mmz_no" type="Button" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/草原/VBoxContainer"]
+margin_top = 222.0
+margin_right = 504.0
+margin_bottom = 292.0
+rect_min_size = Vector2( 0, 70 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "ミミズ"
+icon = ExtResource( 10 )
+flat = true
+expand_icon = true
+
+[node name="bee_no" type="Button" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/草原/VBoxContainer"]
+margin_top = 296.0
+margin_right = 504.0
+margin_bottom = 366.0
+rect_min_size = Vector2( 0, 70 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "シスターズ・ビー"
+icon = ExtResource( 13 )
+flat = true
+expand_icon = true
+
+[node name="spi_doki" type="Button" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/草原/VBoxContainer"]
+margin_top = 370.0
+margin_right = 504.0
+margin_bottom = 440.0
+rect_min_size = Vector2( 0, 70 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "スピリット　怒気"
+icon = ExtResource( 18 )
+flat = true
+expand_icon = true
+
+[node name="spi_gensou" type="Button" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/草原/VBoxContainer"]
+margin_top = 444.0
+margin_right = 504.0
+margin_bottom = 514.0
+rect_min_size = Vector2( 0, 70 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "スピリット　幻想"
+icon = ExtResource( 11 )
+flat = true
+expand_icon = true
+
+[node name="spi_seizyaku" type="Button" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/草原/VBoxContainer"]
+margin_top = 518.0
+margin_right = 504.0
+margin_bottom = 588.0
+rect_min_size = Vector2( 0, 70 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "スピリット　静寂"
+icon = ExtResource( 14 )
+flat = true
+expand_icon = true
+
+[node name="srag_no" type="Button" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/草原/VBoxContainer"]
+margin_top = 592.0
+margin_right = 504.0
+margin_bottom = 662.0
+rect_min_size = Vector2( 0, 70 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "リドルスラッグ"
+icon = ExtResource( 12 )
+flat = true
+expand_icon = true
+
+[node name="gos_no" type="Button" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/草原/VBoxContainer"]
+margin_top = 666.0
+margin_right = 504.0
+margin_bottom = 736.0
+rect_min_size = Vector2( 0, 70 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "ゴースト"
+icon = ExtResource( 8 )
+flat = true
+expand_icon = true
+
+[node name="oga_no" type="Button" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/草原/VBoxContainer"]
+margin_top = 740.0
+margin_right = 504.0
+margin_bottom = 810.0
+rect_min_size = Vector2( 0, 70 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "オーガ"
+icon = ExtResource( 17 )
+flat = true
+expand_icon = true
+
+[node name="火山" type="ScrollContainer" parent="tyousasyo/tyousasyo/ColorRect/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 41.0
+margin_right = -4.0
+margin_bottom = -4.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="GridContainer" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/火山"]
+margin_right = 516.0
+margin_bottom = 372.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/vseparation = 3
+columns = 3
+
+[node name="gob_no" type="Button" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/火山/VBoxContainer"]
+margin_right = 170.0
+margin_bottom = 372.0
+rect_clip_content = true
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 20 )
+text = "ゴブリン"
+icon = ExtResource( 16 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="gob_no2" type="Button" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/火山/VBoxContainer"]
+margin_left = 174.0
+margin_right = 343.0
+margin_bottom = 372.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 20 )
+text = "ゴブリン"
+icon = ExtResource( 16 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="gob_no3" type="Button" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/火山/VBoxContainer"]
+margin_left = 347.0
+margin_right = 516.0
+margin_bottom = 372.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 20 )
+text = "ゴブリン"
+icon = ExtResource( 16 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="海原" type="ScrollContainer" parent="tyousasyo/tyousasyo/ColorRect/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 33.0
+margin_right = -4.0
+margin_bottom = -4.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="GridContainer" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/海原"]
+margin_right = 516.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/vseparation = 3
+columns = 3
+
+[node name="gob_no" type="Button" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/海原/VBoxContainer"]
+margin_right = 168.0
+margin_bottom = 380.0
+rect_clip_content = true
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 20 )
+text = "ゴブリン"
+icon = ExtResource( 16 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="gob_no2" type="Button" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/海原/VBoxContainer"]
+margin_left = 172.0
+margin_right = 339.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 20 )
+text = "ゴブリン"
+icon = ExtResource( 16 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="gob_no3" type="Button" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/海原/VBoxContainer"]
+margin_left = 343.0
+margin_right = 510.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 20 )
+text = "ゴブリン"
+icon = ExtResource( 16 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="森林" type="ScrollContainer" parent="tyousasyo/tyousasyo/ColorRect/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 33.0
+margin_right = -4.0
+margin_bottom = -4.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="GridContainer" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/森林"]
+margin_right = 516.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/vseparation = 3
+columns = 3
+
+[node name="gob_no" type="Button" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/森林/VBoxContainer"]
+margin_right = 168.0
+margin_bottom = 380.0
+rect_clip_content = true
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 20 )
+text = "ゴブリン"
+icon = ExtResource( 16 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="gob_no2" type="Button" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/森林/VBoxContainer"]
+margin_left = 172.0
+margin_right = 339.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 20 )
+text = "ゴブリン"
+icon = ExtResource( 16 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="gob_no3" type="Button" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/森林/VBoxContainer"]
+margin_left = 343.0
+margin_right = 510.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 20 )
+text = "ゴブリン"
+icon = ExtResource( 16 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="毒沼" type="ScrollContainer" parent="tyousasyo/tyousasyo/ColorRect/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 33.0
+margin_right = -4.0
+margin_bottom = -4.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="GridContainer" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/毒沼"]
+margin_right = 516.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/vseparation = 3
+columns = 3
+
+[node name="gob_no" type="Button" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/毒沼/VBoxContainer"]
+margin_right = 168.0
+margin_bottom = 380.0
+rect_clip_content = true
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 20 )
+text = "ゴブリン"
+icon = ExtResource( 16 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="gob_no2" type="Button" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/毒沼/VBoxContainer"]
+margin_left = 172.0
+margin_right = 339.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 20 )
+text = "ゴブリン"
+icon = ExtResource( 16 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="gob_no3" type="Button" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/毒沼/VBoxContainer"]
+margin_left = 343.0
+margin_right = 510.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 20 )
+text = "ゴブリン"
+icon = ExtResource( 16 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="鉱山" type="ScrollContainer" parent="tyousasyo/tyousasyo/ColorRect/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 33.0
+margin_right = -4.0
+margin_bottom = -4.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="GridContainer" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/鉱山"]
+margin_right = 516.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/vseparation = 3
+columns = 3
+
+[node name="gob_no" type="Button" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/鉱山/VBoxContainer"]
+margin_right = 168.0
+margin_bottom = 380.0
+rect_clip_content = true
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 20 )
+text = "ゴブリン"
+icon = ExtResource( 16 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="gob_no2" type="Button" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/鉱山/VBoxContainer"]
+margin_left = 172.0
+margin_right = 339.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 20 )
+text = "ゴブリン"
+icon = ExtResource( 16 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="gob_no3" type="Button" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/鉱山/VBoxContainer"]
+margin_left = 343.0
+margin_right = 510.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 20 )
+text = "ゴブリン"
+icon = ExtResource( 16 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="墓場" type="ScrollContainer" parent="tyousasyo/tyousasyo/ColorRect/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 33.0
+margin_right = -4.0
+margin_bottom = -4.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="GridContainer" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/墓場"]
+margin_right = 516.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/vseparation = 3
+columns = 3
+
+[node name="gob_no" type="Button" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/墓場/VBoxContainer"]
+margin_right = 168.0
+margin_bottom = 380.0
+rect_clip_content = true
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 20 )
+text = "ゴブリン"
+icon = ExtResource( 16 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="gob_no2" type="Button" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/墓場/VBoxContainer"]
+margin_left = 172.0
+margin_right = 339.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 20 )
+text = "ゴブリン"
+icon = ExtResource( 16 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="gob_no3" type="Button" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/墓場/VBoxContainer"]
+margin_left = 343.0
+margin_right = 510.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 20 )
+text = "ゴブリン"
+icon = ExtResource( 16 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="天国" type="ScrollContainer" parent="tyousasyo/tyousasyo/ColorRect/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 33.0
+margin_right = -4.0
+margin_bottom = -4.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="GridContainer" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/天国"]
+margin_right = 516.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/vseparation = 3
+columns = 3
+
+[node name="gob_no" type="Button" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/天国/VBoxContainer"]
+margin_right = 168.0
+margin_bottom = 380.0
+rect_clip_content = true
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 20 )
+text = "ゴブリン"
+icon = ExtResource( 16 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="gob_no2" type="Button" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/天国/VBoxContainer"]
+margin_left = 172.0
+margin_right = 339.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 20 )
+text = "ゴブリン"
+icon = ExtResource( 16 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="gob_no3" type="Button" parent="tyousasyo/tyousasyo/ColorRect/TabContainer/天国/VBoxContainer"]
+margin_left = 343.0
+margin_right = 510.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 20 )
+text = "ゴブリン"
+icon = ExtResource( 16 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="tyousasyo_modoru" type="Button" parent="tyousasyo/tyousasyo"]
+margin_left = 12.0
+margin_top = 502.0
+margin_right = 522.0
+margin_bottom = 582.0
+custom_fonts/font = ExtResource( 1 )
+text = "戻る"
+
+[node name="hyousi" type="TextureRect" parent="tyousasyo/tyousasyo"]
+visible = false
+margin_left = 539.0
+margin_top = 4.0
+margin_right = 1019.0
+margin_bottom = 595.0
+texture = ExtResource( 7 )
+expand = true
+
+[node name="gob_no" type="ColorRect" parent="tyousasyo/tyousasyo"]
+visible = false
+margin_left = 543.0
+margin_top = 8.0
+margin_right = 1015.0
+margin_bottom = 591.0
+
+[node name="namae" type="Label" parent="tyousasyo/tyousasyo/gob_no"]
+margin_left = 220.0
+margin_top = 4.0
+margin_right = 465.0
+margin_bottom = 41.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "ゴブリン"
+align = 1
+
+[node name="type" type="Label" parent="tyousasyo/tyousasyo/gob_no"]
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 279.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "属性："
+
+[node name="type2" type="Label" parent="tyousasyo/tyousasyo/gob_no"]
+anchor_left = 0.154
+anchor_right = 0.392
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 279.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "ノーマル"
+align = 1
+
+[node name="tairyoku" type="Label" parent="tyousasyo/tyousasyo/gob_no"]
+anchor_top = 0.062
+anchor_bottom = 0.062
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 298.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "体力："
+
+[node name="tairyoku2" type="Label" parent="tyousasyo/tyousasyo/gob_no"]
+anchor_left = 0.162
+anchor_top = 0.062
+anchor_right = 0.354
+anchor_bottom = 0.062
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 298.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "？？？"
+align = 1
+
+[node name="kinryoku" type="Label" parent="tyousasyo/tyousasyo/gob_no"]
+anchor_top = 0.124
+anchor_bottom = 0.124
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 298.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "筋力："
+
+[node name="kinryoku2" type="Label" parent="tyousasyo/tyousasyo/gob_no"]
+anchor_left = 0.154
+anchor_top = 0.124
+anchor_right = 0.354
+anchor_bottom = 0.124
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 298.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "？？？"
+align = 1
+
+[node name="taisei" type="Label" parent="tyousasyo/tyousasyo/gob_no"]
+anchor_top = 0.185
+anchor_bottom = 0.185
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 298.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "耐性："
+
+[node name="taisei2" type="Label" parent="tyousasyo/tyousasyo/gob_no"]
+anchor_left = 0.154
+anchor_top = 0.185
+anchor_right = 0.354
+anchor_bottom = 0.185
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 298.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "？？？"
+align = 1
+
+[node name="kannkei" type="Label" parent="tyousasyo/tyousasyo/gob_no"]
+anchor_top = 0.239
+anchor_bottom = 0.239
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 298.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "間柄："
+
+[node name="kannkei2" type="Label" parent="tyousasyo/tyousasyo/gob_no"]
+anchor_left = 0.154
+anchor_top = 0.239
+anchor_right = 0.354
+anchor_bottom = 0.239
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 298.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "？？？"
+align = 1
+
+[node name="setumei" type="RichTextLabel" parent="tyousasyo/tyousasyo/gob_no"]
+margin_left = 6.0
+margin_top = 220.0
+margin_right = 468.0
+margin_bottom = 462.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/mono_font = ExtResource( 20 )
+custom_fonts/bold_italics_font = ExtResource( 20 )
+custom_fonts/italics_font = ExtResource( 20 )
+custom_fonts/bold_font = ExtResource( 20 )
+custom_fonts/normal_font = ExtResource( 20 )
+text = "ノーマルタイプを含めて8種類確認されている。
+ノーマルタイプとされている一般的なゴブリンは全身が黄色く、鋭い牙を持つ。爪は手指と一体化しており、手足は細く、腹部が異様に膨れ上がっているのが特徴。
+雄は腰に布を巻き局部を隠しており、雌はは胸部と腰部分に布を巻いているが、それ以外の違いはない。
+正に『醜悪』という言葉が最も似合う怪物である。
+攻撃的ではなく、こちらに話しかけてくるなどと友好的な態度を示す場合が多い。が、それは我々を騙す為である。
+惑わされるな、奴等は人間の肉を食らう種族だ。"
+
+[node name="gazou" type="TextureRect" parent="tyousasyo/tyousasyo/gob_no"]
+margin_left = 2.0
+margin_top = 1.0
+margin_right = 220.0
+margin_bottom = 248.0
+texture = ExtResource( 16 )
+expand = true
+stretch_mode = 5
+
+[node name="tuiki" type="RichTextLabel" parent="tyousasyo/tyousasyo/gob_no"]
+margin_left = 4.0
+margin_top = 463.0
+margin_right = 467.0
+margin_bottom = 576.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/mono_font = ExtResource( 20 )
+custom_fonts/bold_italics_font = ExtResource( 20 )
+custom_fonts/italics_font = ExtResource( 20 )
+custom_fonts/bold_font = ExtResource( 20 )
+custom_fonts/normal_font = ExtResource( 20 )
+
+[node name="kou_no" type="ColorRect" parent="tyousasyo/tyousasyo"]
+visible = false
+margin_left = 543.0
+margin_top = 8.0
+margin_right = 1015.0
+margin_bottom = 591.0
+
+[node name="namae" type="Label" parent="tyousasyo/tyousasyo/kou_no"]
+margin_left = 220.0
+margin_top = 4.0
+margin_right = 465.0
+margin_bottom = 41.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "コウモリ"
+align = 1
+
+[node name="type" type="Label" parent="tyousasyo/tyousasyo/kou_no"]
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 279.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "属性："
+
+[node name="type2" type="Label" parent="tyousasyo/tyousasyo/kou_no"]
+anchor_left = 0.154
+anchor_right = 0.392
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 279.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "ノーマル"
+align = 1
+
+[node name="tairyoku" type="Label" parent="tyousasyo/tyousasyo/kou_no"]
+anchor_top = 0.062
+anchor_bottom = 0.062
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 298.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "体力："
+
+[node name="tairyoku2" type="Label" parent="tyousasyo/tyousasyo/kou_no"]
+anchor_left = 0.162
+anchor_top = 0.062
+anchor_right = 0.354
+anchor_bottom = 0.062
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 298.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "？？？"
+align = 1
+
+[node name="kinryoku" type="Label" parent="tyousasyo/tyousasyo/kou_no"]
+anchor_top = 0.124
+anchor_bottom = 0.124
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 298.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "筋力："
+
+[node name="kinryoku2" type="Label" parent="tyousasyo/tyousasyo/kou_no"]
+anchor_left = 0.154
+anchor_top = 0.124
+anchor_right = 0.354
+anchor_bottom = 0.124
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 298.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "？？？"
+align = 1
+
+[node name="taisei" type="Label" parent="tyousasyo/tyousasyo/kou_no"]
+anchor_top = 0.185
+anchor_bottom = 0.185
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 298.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "耐性："
+
+[node name="taisei2" type="Label" parent="tyousasyo/tyousasyo/kou_no"]
+anchor_left = 0.154
+anchor_top = 0.185
+anchor_right = 0.354
+anchor_bottom = 0.185
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 298.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "？？？"
+align = 1
+
+[node name="kannkei" type="Label" parent="tyousasyo/tyousasyo/kou_no"]
+anchor_top = 0.239
+anchor_bottom = 0.239
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 298.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "間柄："
+
+[node name="kannkei2" type="Label" parent="tyousasyo/tyousasyo/kou_no"]
+anchor_left = 0.154
+anchor_top = 0.239
+anchor_right = 0.354
+anchor_bottom = 0.239
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 298.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "？？？"
+align = 1
+
+[node name="setumei" type="RichTextLabel" parent="tyousasyo/tyousasyo/kou_no"]
+margin_left = 3.0
+margin_top = 224.0
+margin_right = 464.0
+margin_bottom = 466.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = ExtResource( 20 )
+text = "洞窟や木陰で遭遇するこの怪物はノーマルタイプとする。
+腹部には巨大な眼球がついており、血走ったその目から非常に強力な光を放つ。
+見た目は悍ましいがさほど強くはない。むしろ、腹部の目玉は貴重なランタンの素材になる為、有益な怪物と言えよう。
+奇妙な鳴き声が聞こえた場合、奴等が付近に潜んでいる可能性が高い。腹部の目玉は怪物組合で常に必要な素材である為、腹部を狙わぬように翼を落として怪物組合へ提出するように。"
+
+[node name="gazou" type="TextureRect" parent="tyousasyo/tyousasyo/kou_no"]
+margin_left = 2.0
+margin_top = 1.0
+margin_right = 220.0
+margin_bottom = 248.0
+texture = ExtResource( 15 )
+expand = true
+stretch_mode = 5
+
+[node name="tuiki" type="RichTextLabel" parent="tyousasyo/tyousasyo/kou_no"]
+margin_left = 3.0
+margin_top = 463.0
+margin_right = 464.0
+margin_bottom = 581.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/mono_font = ExtResource( 20 )
+custom_fonts/bold_italics_font = ExtResource( 20 )
+custom_fonts/italics_font = ExtResource( 20 )
+custom_fonts/bold_font = ExtResource( 20 )
+custom_fonts/normal_font = ExtResource( 20 )
+
 [connection signal="pressed" from="sakihesusumu" to="." method="_on_sakihesusumu_pressed"]
-[connection signal="pressed" from="home" to="." method="_on_home_pressed"]
-[connection signal="pressed" from="home/modoru?/hai" to="." method="_on_hai_pressed"]
-[connection signal="pressed" from="home/modoru?/iie" to="." method="_on_iie_pressed"]
 [connection signal="pressed" from="kakunin" to="." method="_on_kakunin_pressed"]
-[connection signal="toggled" from="kakunin" to="." method="_on_kakunin_toggled"]
 [connection signal="pressed" from="sonota" to="." method="_on_sonota_pressed"]
-[connection signal="toggled" from="sonota" to="." method="_on_sonota_toggled"]
-[connection signal="pressed" from="sonota/onota_kontena/kiroku" to="." method="_on_kiroku_pressed"]
-[connection signal="pressed" from="sonota/onota_kontena/kiroku/savesuru/savesuru" to="." method="_on_savesuru_pressed"]
+[connection signal="pressed" from="settei/kiroku" to="." method="_on_kiroku_pressed"]
+[connection signal="pressed" from="settei/home" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="settei/home/modoru?/hai" to="." method="_on_hai_pressed"]
+[connection signal="pressed" from="settei/home/modoru?/iie" to="." method="_on_iie_pressed"]
+[connection signal="pressed" from="Popup/dougu" to="." method="_on_dougu_pressed"]
+[connection signal="pressed" from="Popup/status" to="." method="_on_status_pressed"]
+[connection signal="pressed" from="Popup/tyousasyo" to="." method="_on_tyousasyo_pressed"]
+[connection signal="pressed" from="savesuru/savesuru" to="." method="_on_savesuru_pressed"]
+[connection signal="pressed" from="savesuru/savesinai" to="." method="_on_savesinai_pressed"]
+[connection signal="pressed" from="item/item/item_modoru" to="." method="_on_item_modoru_pressed"]
+[connection signal="pressed" from="status/status/status_modoru" to="." method="_on_status_modoru_pressed"]
+[connection signal="pressed" from="tyousasyo/tyousasyo/ColorRect/TabContainer/草原/VBoxContainer/gob_no" to="tyousasyo/tyousasyo" method="_on_gob_no_pressed"]
+[connection signal="pressed" from="tyousasyo/tyousasyo/ColorRect/TabContainer/草原/VBoxContainer/kou_no" to="tyousasyo/tyousasyo" method="_on_kou_no_pressed"]
+[connection signal="pressed" from="tyousasyo/tyousasyo/tyousasyo_modoru" to="." method="_on_tyousasyo_modoru_pressed"]

@@ -11,18 +11,17 @@ config_version=4
 [application]
 
 config/name="monge"
+run/main_scene="res://scene/kyotenti.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Player="*res://script/player.gd"
+MonDatabase="*res://data/touzyou_zinbutu/monster/mon_database.tscn"
+Itemdatabase="*res://data/item/itemdatabase.tscn"
 
 [display]
 
-window/size/width=600
-window/size/height=1240
-window/size/test_width=200
-window/size/test_height=410
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 

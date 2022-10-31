@@ -1,0 +1,976 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://data/font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://script/tyousasyo.gd" type="Script" id=2]
+[ext_resource path="res://data/font_tiisame.tres" type="DynamicFont" id=3]
+[ext_resource path="res://data/image/tyousasyo/表紙.jpg" type="Texture" id=5]
+[ext_resource path="res://data/image/tyousasyo/sougen/gos_no.jpg" type="Texture" id=7]
+[ext_resource path="res://data/image/tyousasyo/sougen/mmz_no.jpg" type="Texture" id=8]
+[ext_resource path="res://data/image/tyousasyo/sougen/oga_no.jpg" type="Texture" id=9]
+[ext_resource path="res://data/image/tyousasyo/sougen/spi_doki.jpg" type="Texture" id=10]
+[ext_resource path="res://data/image/tyousasyo/sougen/spi_gensou.jpg" type="Texture" id=11]
+[ext_resource path="res://data/image/tyousasyo/sougen/spi_seizyaku.jpg" type="Texture" id=12]
+[ext_resource path="res://data/image/tyousasyo/sougen/bee_no.jpg" type="Texture" id=13]
+[ext_resource path="res://data/image/tyousasyo/sougen/kou_no.jpg" type="Texture" id=14]
+[ext_resource path="res://data/image/tyousasyo/sougen/sli_no.jpg" type="Texture" id=15]
+[ext_resource path="res://data/image/tyousasyo/sougen/srag_no.jpg" type="Texture" id=16]
+[ext_resource path="res://data/image/tyousasyo/sougen/gob_no.jpg" type="Texture" id=17]
+[ext_resource path="res://data/font_tiiiiii.tres" type="DynamicFont" id=18]
+
+[node name="tyousasyo" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="TextureRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 6.10352e-05
+color = Color( 0.180392, 0.180392, 0.180392, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -489.0
+color = Color( 0.529412, 0.486275, 0.486275, 0.466667 )
+
+[node name="tyousasyodayo" type="Label" parent="ColorRect"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -77.5
+margin_top = 10.0
+margin_right = 80.5
+margin_bottom = 52.0
+custom_fonts/font = ExtResource( 1 )
+text = "調査書"
+align = 1
+
+[node name="TabContainer" type="TabContainer" parent="ColorRect"]
+margin_left = 5.0
+margin_top = 52.0
+margin_right = 529.0
+margin_bottom = 469.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 18 )
+
+[node name="草原" type="ScrollContainer" parent="ColorRect/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 41.0
+margin_right = -4.0
+margin_bottom = -4.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+follow_focus = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/TabContainer/草原"]
+margin_right = 504.0
+margin_bottom = 810.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="gob_no" type="Button" parent="ColorRect/TabContainer/草原/VBoxContainer"]
+margin_right = 504.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 0, 70 )
+rect_clip_content = true
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "ゴブリン"
+icon = ExtResource( 17 )
+flat = true
+expand_icon = true
+
+[node name="kou_no" type="Button" parent="ColorRect/TabContainer/草原/VBoxContainer"]
+margin_top = 74.0
+margin_right = 504.0
+margin_bottom = 144.0
+rect_min_size = Vector2( 0, 70 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "コウモリ"
+icon = ExtResource( 14 )
+flat = true
+expand_icon = true
+
+[node name="sl_no" type="Button" parent="ColorRect/TabContainer/草原/VBoxContainer"]
+margin_top = 148.0
+margin_right = 504.0
+margin_bottom = 218.0
+rect_min_size = Vector2( 0, 70 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "スライム"
+icon = ExtResource( 15 )
+flat = true
+expand_icon = true
+
+[node name="mmz_no" type="Button" parent="ColorRect/TabContainer/草原/VBoxContainer"]
+margin_top = 222.0
+margin_right = 504.0
+margin_bottom = 292.0
+rect_min_size = Vector2( 0, 70 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "ミミズ"
+icon = ExtResource( 8 )
+flat = true
+expand_icon = true
+
+[node name="bee_no" type="Button" parent="ColorRect/TabContainer/草原/VBoxContainer"]
+margin_top = 296.0
+margin_right = 504.0
+margin_bottom = 366.0
+rect_min_size = Vector2( 0, 70 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "シスターズ・ビー"
+icon = ExtResource( 13 )
+flat = true
+expand_icon = true
+
+[node name="spi_doki" type="Button" parent="ColorRect/TabContainer/草原/VBoxContainer"]
+margin_top = 370.0
+margin_right = 504.0
+margin_bottom = 440.0
+rect_min_size = Vector2( 0, 70 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "スピリット　怒気"
+icon = ExtResource( 10 )
+flat = true
+expand_icon = true
+
+[node name="spi_gensou" type="Button" parent="ColorRect/TabContainer/草原/VBoxContainer"]
+margin_top = 444.0
+margin_right = 504.0
+margin_bottom = 514.0
+rect_min_size = Vector2( 0, 70 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "スピリット　幻想"
+icon = ExtResource( 11 )
+flat = true
+expand_icon = true
+
+[node name="spi_seizyaku" type="Button" parent="ColorRect/TabContainer/草原/VBoxContainer"]
+margin_top = 518.0
+margin_right = 504.0
+margin_bottom = 588.0
+rect_min_size = Vector2( 0, 70 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "スピリット　静寂"
+icon = ExtResource( 12 )
+flat = true
+expand_icon = true
+
+[node name="srag_no" type="Button" parent="ColorRect/TabContainer/草原/VBoxContainer"]
+margin_top = 592.0
+margin_right = 504.0
+margin_bottom = 662.0
+rect_min_size = Vector2( 0, 70 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "リドルスラッグ"
+icon = ExtResource( 16 )
+flat = true
+expand_icon = true
+
+[node name="gos_no" type="Button" parent="ColorRect/TabContainer/草原/VBoxContainer"]
+margin_top = 666.0
+margin_right = 504.0
+margin_bottom = 736.0
+rect_min_size = Vector2( 0, 70 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "ゴースト"
+icon = ExtResource( 7 )
+flat = true
+expand_icon = true
+
+[node name="oga_no" type="Button" parent="ColorRect/TabContainer/草原/VBoxContainer"]
+margin_top = 740.0
+margin_right = 504.0
+margin_bottom = 810.0
+rect_min_size = Vector2( 0, 70 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "オーガ"
+icon = ExtResource( 9 )
+flat = true
+expand_icon = true
+
+[node name="火山" type="ScrollContainer" parent="ColorRect/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 41.0
+margin_right = -4.0
+margin_bottom = -4.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="GridContainer" parent="ColorRect/TabContainer/火山"]
+margin_right = 516.0
+margin_bottom = 372.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/vseparation = 3
+columns = 3
+
+[node name="gob_no" type="Button" parent="ColorRect/TabContainer/火山/VBoxContainer"]
+margin_right = 170.0
+margin_bottom = 372.0
+rect_clip_content = true
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 18 )
+text = "ゴブリン"
+icon = ExtResource( 17 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="gob_no2" type="Button" parent="ColorRect/TabContainer/火山/VBoxContainer"]
+margin_left = 174.0
+margin_right = 343.0
+margin_bottom = 372.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 18 )
+text = "ゴブリン"
+icon = ExtResource( 17 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="gob_no3" type="Button" parent="ColorRect/TabContainer/火山/VBoxContainer"]
+margin_left = 347.0
+margin_right = 516.0
+margin_bottom = 372.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 18 )
+text = "ゴブリン"
+icon = ExtResource( 17 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="海原" type="ScrollContainer" parent="ColorRect/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 33.0
+margin_right = -4.0
+margin_bottom = -4.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="GridContainer" parent="ColorRect/TabContainer/海原"]
+margin_right = 516.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/vseparation = 3
+columns = 3
+
+[node name="gob_no" type="Button" parent="ColorRect/TabContainer/海原/VBoxContainer"]
+margin_right = 168.0
+margin_bottom = 380.0
+rect_clip_content = true
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 18 )
+text = "ゴブリン"
+icon = ExtResource( 17 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="gob_no2" type="Button" parent="ColorRect/TabContainer/海原/VBoxContainer"]
+margin_left = 172.0
+margin_right = 339.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 18 )
+text = "ゴブリン"
+icon = ExtResource( 17 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="gob_no3" type="Button" parent="ColorRect/TabContainer/海原/VBoxContainer"]
+margin_left = 343.0
+margin_right = 510.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 18 )
+text = "ゴブリン"
+icon = ExtResource( 17 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="森林" type="ScrollContainer" parent="ColorRect/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 33.0
+margin_right = -4.0
+margin_bottom = -4.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="GridContainer" parent="ColorRect/TabContainer/森林"]
+margin_right = 516.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/vseparation = 3
+columns = 3
+
+[node name="gob_no" type="Button" parent="ColorRect/TabContainer/森林/VBoxContainer"]
+margin_right = 168.0
+margin_bottom = 380.0
+rect_clip_content = true
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 18 )
+text = "ゴブリン"
+icon = ExtResource( 17 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="gob_no2" type="Button" parent="ColorRect/TabContainer/森林/VBoxContainer"]
+margin_left = 172.0
+margin_right = 339.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 18 )
+text = "ゴブリン"
+icon = ExtResource( 17 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="gob_no3" type="Button" parent="ColorRect/TabContainer/森林/VBoxContainer"]
+margin_left = 343.0
+margin_right = 510.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 18 )
+text = "ゴブリン"
+icon = ExtResource( 17 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="毒沼" type="ScrollContainer" parent="ColorRect/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 33.0
+margin_right = -4.0
+margin_bottom = -4.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="GridContainer" parent="ColorRect/TabContainer/毒沼"]
+margin_right = 516.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/vseparation = 3
+columns = 3
+
+[node name="gob_no" type="Button" parent="ColorRect/TabContainer/毒沼/VBoxContainer"]
+margin_right = 168.0
+margin_bottom = 380.0
+rect_clip_content = true
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 18 )
+text = "ゴブリン"
+icon = ExtResource( 17 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="gob_no2" type="Button" parent="ColorRect/TabContainer/毒沼/VBoxContainer"]
+margin_left = 172.0
+margin_right = 339.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 18 )
+text = "ゴブリン"
+icon = ExtResource( 17 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="gob_no3" type="Button" parent="ColorRect/TabContainer/毒沼/VBoxContainer"]
+margin_left = 343.0
+margin_right = 510.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 18 )
+text = "ゴブリン"
+icon = ExtResource( 17 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="鉱山" type="ScrollContainer" parent="ColorRect/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 33.0
+margin_right = -4.0
+margin_bottom = -4.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="GridContainer" parent="ColorRect/TabContainer/鉱山"]
+margin_right = 516.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/vseparation = 3
+columns = 3
+
+[node name="gob_no" type="Button" parent="ColorRect/TabContainer/鉱山/VBoxContainer"]
+margin_right = 168.0
+margin_bottom = 380.0
+rect_clip_content = true
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 18 )
+text = "ゴブリン"
+icon = ExtResource( 17 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="gob_no2" type="Button" parent="ColorRect/TabContainer/鉱山/VBoxContainer"]
+margin_left = 172.0
+margin_right = 339.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 18 )
+text = "ゴブリン"
+icon = ExtResource( 17 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="gob_no3" type="Button" parent="ColorRect/TabContainer/鉱山/VBoxContainer"]
+margin_left = 343.0
+margin_right = 510.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 18 )
+text = "ゴブリン"
+icon = ExtResource( 17 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="墓場" type="ScrollContainer" parent="ColorRect/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 33.0
+margin_right = -4.0
+margin_bottom = -4.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="GridContainer" parent="ColorRect/TabContainer/墓場"]
+margin_right = 516.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/vseparation = 3
+columns = 3
+
+[node name="gob_no" type="Button" parent="ColorRect/TabContainer/墓場/VBoxContainer"]
+margin_right = 168.0
+margin_bottom = 380.0
+rect_clip_content = true
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 18 )
+text = "ゴブリン"
+icon = ExtResource( 17 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="gob_no2" type="Button" parent="ColorRect/TabContainer/墓場/VBoxContainer"]
+margin_left = 172.0
+margin_right = 339.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 18 )
+text = "ゴブリン"
+icon = ExtResource( 17 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="gob_no3" type="Button" parent="ColorRect/TabContainer/墓場/VBoxContainer"]
+margin_left = 343.0
+margin_right = 510.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 18 )
+text = "ゴブリン"
+icon = ExtResource( 17 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="天国" type="ScrollContainer" parent="ColorRect/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 33.0
+margin_right = -4.0
+margin_bottom = -4.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="GridContainer" parent="ColorRect/TabContainer/天国"]
+margin_right = 516.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/vseparation = 3
+columns = 3
+
+[node name="gob_no" type="Button" parent="ColorRect/TabContainer/天国/VBoxContainer"]
+margin_right = 168.0
+margin_bottom = 380.0
+rect_clip_content = true
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 18 )
+text = "ゴブリン"
+icon = ExtResource( 17 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="gob_no2" type="Button" parent="ColorRect/TabContainer/天国/VBoxContainer"]
+margin_left = 172.0
+margin_right = 339.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 18 )
+text = "ゴブリン"
+icon = ExtResource( 17 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="gob_no3" type="Button" parent="ColorRect/TabContainer/天国/VBoxContainer"]
+margin_left = 343.0
+margin_right = 510.0
+margin_bottom = 380.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 18 )
+text = "ゴブリン"
+icon = ExtResource( 17 )
+flat = true
+align = 0
+expand_icon = true
+
+[node name="modoru" type="Button" parent="."]
+margin_left = 12.0
+margin_top = 502.0
+margin_right = 522.0
+margin_bottom = 582.0
+custom_fonts/font = ExtResource( 1 )
+text = "戻る"
+
+[node name="hyousi" type="TextureRect" parent="."]
+visible = false
+margin_left = 539.0
+margin_top = 4.0
+margin_right = 1019.0
+margin_bottom = 595.0
+texture = ExtResource( 5 )
+expand = true
+
+[node name="gob_no" type="ColorRect" parent="."]
+visible = false
+margin_left = 543.0
+margin_top = 8.0
+margin_right = 1015.0
+margin_bottom = 591.0
+
+[node name="namae" type="Label" parent="gob_no"]
+margin_left = 220.0
+margin_top = 4.0
+margin_right = 465.0
+margin_bottom = 41.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "ゴブリン"
+align = 1
+
+[node name="type" type="Label" parent="gob_no"]
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 279.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "属性："
+
+[node name="type2" type="Label" parent="gob_no"]
+anchor_left = 0.154
+anchor_right = 0.392
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 279.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "ノーマル"
+align = 1
+
+[node name="tairyoku" type="Label" parent="gob_no"]
+anchor_top = 0.062
+anchor_bottom = 0.062
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 298.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "体力："
+
+[node name="tairyoku2" type="Label" parent="gob_no"]
+anchor_left = 0.162
+anchor_top = 0.062
+anchor_right = 0.354
+anchor_bottom = 0.062
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 298.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "？？？"
+align = 1
+
+[node name="kinryoku" type="Label" parent="gob_no"]
+anchor_top = 0.124
+anchor_bottom = 0.124
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 298.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "筋力："
+
+[node name="kinryoku2" type="Label" parent="gob_no"]
+anchor_left = 0.154
+anchor_top = 0.124
+anchor_right = 0.354
+anchor_bottom = 0.124
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 298.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "？？？"
+align = 1
+
+[node name="taisei" type="Label" parent="gob_no"]
+anchor_top = 0.185
+anchor_bottom = 0.185
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 298.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "耐性："
+
+[node name="taisei2" type="Label" parent="gob_no"]
+anchor_left = 0.154
+anchor_top = 0.185
+anchor_right = 0.354
+anchor_bottom = 0.185
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 298.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "？？？"
+align = 1
+
+[node name="kannkei" type="Label" parent="gob_no"]
+anchor_top = 0.239
+anchor_bottom = 0.239
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 298.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "間柄："
+
+[node name="kannkei2" type="Label" parent="gob_no"]
+anchor_left = 0.154
+anchor_top = 0.239
+anchor_right = 0.354
+anchor_bottom = 0.239
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 298.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "？？？"
+align = 1
+
+[node name="setumei" type="RichTextLabel" parent="gob_no"]
+margin_left = 6.0
+margin_top = 220.0
+margin_right = 468.0
+margin_bottom = 462.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/mono_font = ExtResource( 18 )
+custom_fonts/bold_italics_font = ExtResource( 18 )
+custom_fonts/italics_font = ExtResource( 18 )
+custom_fonts/bold_font = ExtResource( 18 )
+custom_fonts/normal_font = ExtResource( 18 )
+text = "ノーマルタイプを含めて8種類確認されている。
+ノーマルタイプとされている一般的なゴブリンは全身が黄色く、鋭い牙を持つ。爪は手指と一体化しており、手足は細く、腹部が異様に膨れ上がっているのが特徴。
+雄は腰に布を巻き局部を隠しており、雌はは胸部と腰部分に布を巻いているが、それ以外の違いはない。
+正に『醜悪』という言葉が最も似合う怪物である。
+攻撃的ではなく、こちらに話しかけてくるなどと友好的な態度を示す場合が多い。が、それは我々を騙す為である。
+惑わされるな、奴等は人間の肉を食らう種族だ。"
+
+[node name="gazou" type="TextureRect" parent="gob_no"]
+margin_left = 2.0
+margin_top = 1.0
+margin_right = 220.0
+margin_bottom = 248.0
+texture = ExtResource( 17 )
+expand = true
+stretch_mode = 5
+
+[node name="tuiki" type="RichTextLabel" parent="gob_no"]
+margin_left = 4.0
+margin_top = 463.0
+margin_right = 467.0
+margin_bottom = 576.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/mono_font = ExtResource( 18 )
+custom_fonts/bold_italics_font = ExtResource( 18 )
+custom_fonts/italics_font = ExtResource( 18 )
+custom_fonts/bold_font = ExtResource( 18 )
+custom_fonts/normal_font = ExtResource( 18 )
+
+[node name="kou_no" type="ColorRect" parent="."]
+visible = false
+margin_left = 543.0
+margin_top = 8.0
+margin_right = 1015.0
+margin_bottom = 591.0
+
+[node name="namae" type="Label" parent="kou_no"]
+margin_left = 220.0
+margin_top = 4.0
+margin_right = 465.0
+margin_bottom = 41.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "コウモリ"
+align = 1
+
+[node name="type" type="Label" parent="kou_no"]
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 279.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "属性："
+
+[node name="type2" type="Label" parent="kou_no"]
+anchor_left = 0.154
+anchor_right = 0.392
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 279.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "ノーマル"
+align = 1
+
+[node name="tairyoku" type="Label" parent="kou_no"]
+anchor_top = 0.062
+anchor_bottom = 0.062
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 298.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "体力："
+
+[node name="tairyoku2" type="Label" parent="kou_no"]
+anchor_left = 0.162
+anchor_top = 0.062
+anchor_right = 0.354
+anchor_bottom = 0.062
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 298.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "？？？"
+align = 1
+
+[node name="kinryoku" type="Label" parent="kou_no"]
+anchor_top = 0.124
+anchor_bottom = 0.124
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 298.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "筋力："
+
+[node name="kinryoku2" type="Label" parent="kou_no"]
+anchor_left = 0.154
+anchor_top = 0.124
+anchor_right = 0.354
+anchor_bottom = 0.124
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 298.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "？？？"
+align = 1
+
+[node name="taisei" type="Label" parent="kou_no"]
+anchor_top = 0.185
+anchor_bottom = 0.185
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 298.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "耐性："
+
+[node name="taisei2" type="Label" parent="kou_no"]
+anchor_left = 0.154
+anchor_top = 0.185
+anchor_right = 0.354
+anchor_bottom = 0.185
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 298.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "？？？"
+align = 1
+
+[node name="kannkei" type="Label" parent="kou_no"]
+anchor_top = 0.239
+anchor_bottom = 0.239
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 298.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "間柄："
+
+[node name="kannkei2" type="Label" parent="kou_no"]
+anchor_left = 0.154
+anchor_top = 0.239
+anchor_right = 0.354
+anchor_bottom = 0.239
+margin_left = 223.0
+margin_top = 45.0
+margin_right = 298.0
+margin_bottom = 82.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "？？？"
+align = 1
+
+[node name="setumei" type="RichTextLabel" parent="kou_no"]
+margin_left = 3.0
+margin_top = 224.0
+margin_right = 464.0
+margin_bottom = 466.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = ExtResource( 18 )
+text = "洞窟や木陰で遭遇するこの怪物はノーマルタイプとする。
+腹部には巨大な眼球がついており、血走ったその目から非常に強力な光を放つ。
+見た目は悍ましいがさほど強くはない。むしろ、腹部の目玉は貴重なランタンの素材になる為、有益な怪物と言えよう。
+奇妙な鳴き声が聞こえた場合、奴等が付近に潜んでいる可能性が高い。腹部の目玉は怪物組合で常に必要な素材である為、腹部を狙わぬように翼を落として怪物組合へ提出するように。"
+
+[node name="gazou" type="TextureRect" parent="kou_no"]
+margin_left = 2.0
+margin_top = 1.0
+margin_right = 220.0
+margin_bottom = 248.0
+texture = ExtResource( 14 )
+expand = true
+stretch_mode = 5
+
+[node name="tuiki" type="RichTextLabel" parent="kou_no"]
+margin_left = 3.0
+margin_top = 463.0
+margin_right = 464.0
+margin_bottom = 581.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/mono_font = ExtResource( 18 )
+custom_fonts/bold_italics_font = ExtResource( 18 )
+custom_fonts/italics_font = ExtResource( 18 )
+custom_fonts/bold_font = ExtResource( 18 )
+custom_fonts/normal_font = ExtResource( 18 )
+
+[connection signal="pressed" from="ColorRect/TabContainer/草原/VBoxContainer/gob_no" to="." method="_on_gob_no_pressed"]
+[connection signal="pressed" from="ColorRect/TabContainer/草原/VBoxContainer/kou_no" to="." method="_on_kou_no_pressed"]
+[connection signal="pressed" from="modoru" to="." method="_on_modoru_pressed"]

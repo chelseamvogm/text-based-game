@@ -1,7 +1,7 @@
 extends Control
 
-var g = preload("res://scene/sougen/goblin.tscn")
-var sougen = [g]
+var sonota_count : bool = false
+var kakunin_count : bool = false
 
 
 func _mon_kankei():
@@ -60,39 +60,27 @@ func _ready():
 	$ColorRect/pnamae.text = Player._p_name
 
 
-func _on_sakihesusumu_pressed():
-	var ran = sougen[randi() % sougen.size()]
-	var random = randf()
-	if random < 0.8:
-		return get_tree().change_scene_to(ran)
-	else:
-		Player._p_hp = (Player._p_hp + 10)
-		$Panel/message.text = "- ここには何もないようだ -\n- 引き続き調査しよう -"
-
-
-func _on_home_pressed():
-	$"settei/home/modoru?".show()
-
-
-func _on_hai_pressed():
-	return get_tree().change_scene("res://scene/kyotenti.tscn")
-
-
-func _on_iie_pressed():
-	$settei.hide()
-
-
 func _on_kakunin_pressed():
 	$Popup.popup()
 
 
-func _on_dougu_pressed():
-	$item.popup()
-	$Popup.hide()
+func _on_sonota_pressed():
+	$settei.popup()
 
 
-func _on_item_modoru_pressed():
-	$item.hide()
+func _on_kiroku_pressed():
+	$savesuru.popup()
+	$settei.hide()
+
+
+func _on_savesuru_pressed():
+	Player._save_suruyo()
+	$Panel/message.text = "今までの思い出を\n保存しときました。"
+	$savesuru.hide()
+
+
+func _on_savesinai_pressed():
+	$savesuru.hide()
 
 
 func _on_status_pressed():
@@ -104,6 +92,15 @@ func _on_status_modoru_pressed():
 	$status.hide()
 
 
+func _on_dougu_pressed():
+	$item.popup()
+	$Popup.hide()
+	
+
+func _on_item_modoru_pressed():
+	$item.hide()
+
+
 func _on_tyousasyo_pressed():
 	$tyousasyo.popup()
 	$Popup.hide()
@@ -113,23 +110,5 @@ func _on_tyousasyo_modoru_pressed():
 	$tyousasyo.hide()
 
 
-func _on_sonota_pressed():
-	$settei.popup()
-
-
-func _on_kiroku_pressed():
-	$savesuru.popup()
-
-
-func _on_savesuru_pressed():
-	Player._save_suruyo()
-	$Panel/message.text = "今までの思い出を\n保存しときました。"
-	$settei.hide()
-	$savesuru.hide()
-
-
-func _on_savesinai_pressed():
-	$settei.hide()
-	$savesuru.hide()
-
-
+func _on_tyousani_iku_pressed():
+	return get_tree().change_scene("res://scene/area_sentaku.tscn")

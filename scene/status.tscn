@@ -1,0 +1,311 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://data/font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://script/status.gd" type="Script" id=2]
+
+[node name="status" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="TextureRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 6.10352e-05
+color = Color( 0.180392, 0.180392, 0.180392, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 15.0
+margin_top = 10.0
+margin_right = 1010.0
+margin_bottom = 464.0
+color = Color( 0.529412, 0.486275, 0.486275, 0.466667 )
+
+[node name="areanamae" type="Label" parent="ColorRect"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -484.5
+margin_top = 14.0
+margin_right = -79.5
+margin_bottom = 56.0
+custom_fonts/font = ExtResource( 1 )
+align = 1
+
+[node name="tairyoku" type="Label" parent="ColorRect"]
+margin_left = 40.0
+margin_top = 70.0
+margin_right = 115.0
+margin_bottom = 55.0
+custom_fonts/font = ExtResource( 1 )
+text = "体力："
+
+[node name="tairyoku_suuzi" type="Label" parent="ColorRect/tairyoku"]
+margin_left = 260.0
+margin_right = 225.0
+custom_fonts/font = ExtResource( 1 )
+align = 1
+
+[node name="kinryoku" type="Label" parent="ColorRect"]
+margin_left = 40.0
+margin_top = 110.0
+margin_right = 115.0
+margin_bottom = 100.0
+custom_fonts/font = ExtResource( 1 )
+text = "筋力："
+
+[node name="kinryoku_suuzi" type="Label" parent="ColorRect/kinryoku"]
+margin_left = 260.0
+margin_right = 225.0
+custom_fonts/font = ExtResource( 1 )
+align = 1
+
+[node name="taisei" type="Label" parent="ColorRect"]
+margin_left = 40.0
+margin_top = 150.0
+margin_right = 115.0
+margin_bottom = 140.0
+custom_fonts/font = ExtResource( 1 )
+text = "耐性："
+
+[node name="taisei_suuzi" type="Label" parent="ColorRect/taisei"]
+margin_left = 260.0
+margin_right = 225.0
+custom_fonts/font = ExtResource( 1 )
+align = 1
+
+[node name="syozikin" type="Label" parent="ColorRect"]
+margin_left = 40.0
+margin_top = 190.0
+margin_right = 140.0
+margin_bottom = 180.0
+custom_fonts/font = ExtResource( 1 )
+text = "所持金："
+
+[node name="syozikin_suuzi" type="Label" parent="ColorRect/syozikin"]
+margin_left = 260.0
+margin_right = 225.0
+custom_fonts/font = ExtResource( 1 )
+align = 1
+
+[node name="mon_zyoutai" type="Label" parent="ColorRect"]
+margin_left = 40.0
+margin_top = 230.0
+margin_right = 140.0
+margin_bottom = 230.0
+custom_fonts/font = ExtResource( 1 )
+text = "怪物界："
+
+[node name="mon_zyoutai2" type="Label" parent="ColorRect/mon_zyoutai"]
+margin_left = 260.0
+margin_right = 225.0
+custom_fonts/font = ExtResource( 1 )
+align = 1
+
+[node name="hu_zyoutai" type="Label" parent="ColorRect"]
+margin_left = 40.0
+margin_top = 270.0
+margin_right = 140.0
+margin_bottom = 275.0
+custom_fonts/font = ExtResource( 1 )
+text = "人間界："
+
+[node name="hu_zyoutai2" type="Label" parent="ColorRect/hu_zyoutai"]
+margin_left = 260.0
+margin_right = 225.0
+custom_fonts/font = ExtResource( 1 )
+align = 1
+
+[node name="dati_mon" type="Label" parent="ColorRect"]
+margin_left = 40.0
+margin_top = 310.0
+margin_right = 270.0
+margin_bottom = 320.0
+custom_fonts/font = ExtResource( 1 )
+text = "ダチになった怪物："
+
+[node name="dati_mon2" type="Label" parent="ColorRect/dati_mon"]
+margin_left = 260.0
+margin_right = 225.0
+custom_fonts/font = ExtResource( 1 )
+align = 1
+
+[node name="dati_hu" type="Label" parent="ColorRect"]
+margin_left = 40.0
+margin_top = 350.0
+margin_right = 265.0
+margin_bottom = 360.0
+custom_fonts/font = ExtResource( 1 )
+text = "ダチになった人間："
+
+[node name="dati_hu2" type="Label" parent="ColorRect/dati_hu"]
+margin_left = 260.0
+margin_right = 225.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 1 )
+align = 1
+
+[node name="katemon" type="Label" parent="ColorRect"]
+margin_left = 540.0
+margin_top = 310.0
+margin_right = 265.0
+custom_fonts/font = ExtResource( 1 )
+text = "カテになった怪物："
+
+[node name="katemon2" type="Label" parent="ColorRect/katemon"]
+margin_left = 260.0
+margin_right = 225.0
+custom_fonts/font = ExtResource( 1 )
+align = 1
+
+[node name="katehu" type="Label" parent="ColorRect"]
+margin_left = 540.0
+margin_top = 350.0
+margin_right = 265.0
+custom_fonts/font = ExtResource( 1 )
+text = "カテになった人間："
+
+[node name="katehu2" type="Label" parent="ColorRect/katehu"]
+margin_left = 260.0
+margin_right = 225.0
+custom_fonts/font = ExtResource( 1 )
+align = 1
+
+[node name="kakunin" type="Button" parent="."]
+margin_left = 14.0
+margin_top = 508.0
+margin_right = 194.0
+margin_bottom = 588.0
+rect_pivot_offset = Vector2( -844, -712 )
+custom_fonts/font = ExtResource( 1 )
+text = "確認"
+
+[node name="kakunin_sita" type="ColorRect" parent="kakunin"]
+visible = false
+margin_left = 350.0
+margin_top = -278.0
+margin_right = 642.0
+margin_bottom = -128.0
+color = Color( 0.52549, 0.509804, 0.509804, 0.745098 )
+
+[node name="kakunin_kontena" type="VBoxContainer" parent="kakunin"]
+visible = false
+margin_left = 356.0
+margin_top = -270.0
+margin_right = 636.0
+margin_bottom = -133.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="dougu" type="Button" parent="kakunin/kakunin_kontena"]
+margin_right = 280.0
+margin_bottom = 43.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.0
+custom_fonts/font = ExtResource( 1 )
+text = "持ち物"
+
+[node name="tyousasyo" type="Button" parent="kakunin/kakunin_kontena"]
+margin_top = 94.0
+margin_right = 280.0
+margin_bottom = 137.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "調査書"
+
+[node name="sonota" type="Button" parent="."]
+margin_left = 830.0
+margin_top = 508.0
+margin_right = 1010.0
+margin_bottom = 588.0
+custom_fonts/font = ExtResource( 1 )
+text = "その他"
+
+[node name="sonota_sita" type="ColorRect" parent="sonota"]
+visible = false
+margin_left = -473.0
+margin_top = -262.0
+margin_right = -181.0
+margin_bottom = -159.0
+color = Color( 0.52549, 0.509804, 0.509804, 0.745098 )
+
+[node name="onota_kontena" type="VBoxContainer" parent="sonota"]
+visible = false
+margin_left = -466.0
+margin_top = -256.0
+margin_right = -186.0
+margin_bottom = -166.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="settei" type="Button" parent="sonota/onota_kontena"]
+margin_right = 280.0
+margin_bottom = 43.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.0
+custom_fonts/font = ExtResource( 1 )
+text = "設定"
+
+[node name="kiroku" type="Button" parent="sonota/onota_kontena"]
+margin_top = 47.0
+margin_right = 280.0
+margin_bottom = 90.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+custom_fonts/font = ExtResource( 1 )
+text = "記録"
+
+[node name="savesuru" type="Panel" parent="sonota/onota_kontena/kiroku"]
+visible = false
+anchor_left = 1.617
+anchor_top = -6.331
+anchor_right = 1.617
+anchor_bottom = -6.331
+margin_left = -489.76
+margin_top = 172.233
+margin_right = -129.76
+margin_bottom = 351.233
+
+[node name="Label" type="Label" parent="sonota/onota_kontena/kiroku/savesuru"]
+margin_left = 2.0
+margin_top = 8.0
+margin_right = 357.0
+margin_bottom = 56.0
+custom_fonts/font = ExtResource( 1 )
+text = "今までの思い出を
+保存しますか？"
+align = 1
+
+[node name="savesuru" type="Button" parent="sonota/onota_kontena/kiroku/savesuru"]
+margin_left = 18.0
+margin_top = 120.0
+margin_right = 153.0
+margin_bottom = 163.0
+custom_fonts/font = ExtResource( 1 )
+text = "はい"
+
+[node name="savesinai" type="Button" parent="sonota/onota_kontena/kiroku/savesuru"]
+margin_left = 204.0
+margin_top = 120.0
+margin_right = 339.0
+margin_bottom = 163.0
+custom_fonts/font = ExtResource( 1 )
+text = "いいえ"
+
+[node name="modoru" type="Button" parent="."]
+margin_left = 226.0
+margin_top = 508.0
+margin_right = 796.0
+margin_bottom = 588.0
+custom_fonts/font = ExtResource( 1 )
+text = "戻る"
+
+[connection signal="pressed" from="sonota" to="." method="_on_sonota_pressed"]
+[connection signal="pressed" from="sonota/onota_kontena/kiroku" to="." method="_on_kiroku_pressed"]
+[connection signal="pressed" from="sonota/onota_kontena/kiroku/savesuru/savesuru" to="." method="_on_savesuru_pressed"]
+[connection signal="pressed" from="sonota/onota_kontena/kiroku/savesuru/savesinai" to="." method="_on_savesinai_pressed"]
+[connection signal="pressed" from="modoru" to="." method="_on_modoru_pressed"]

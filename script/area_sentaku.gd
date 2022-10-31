@@ -1,9 +1,5 @@
 extends Control
 
-var g = preload("res://scene/sougen/goblin.tscn")
-var sougen = [g]
-
-
 func _mon_kankei():
 	if Player._p_mo_love >= 350:
 		$ColorRect/mon_zyoutai2.text = "イイ感じ"
@@ -50,36 +46,17 @@ func _p_tairyoku():
 
 
 func _ready():
-	randomize()
+	Player._load_suruyo()
 	_mon_kankei()
 	_hu_kankei()
 	_p_kinryoku()
 	_p_taisei()
 	_p_tairyoku()
-	Player._load_suruyo()
 	$ColorRect/pnamae.text = Player._p_name
 
 
-func _on_sakihesusumu_pressed():
-	var ran = sougen[randi() % sougen.size()]
-	var random = randf()
-	if random < 0.8:
-		return get_tree().change_scene_to(ran)
-	else:
-		Player._p_hp = (Player._p_hp + 10)
-		$Panel/message.text = "- ここには何もないようだ -\n- 引き続き調査しよう -"
-
-
-func _on_home_pressed():
-	$"settei/home/modoru?".show()
-
-
-func _on_hai_pressed():
+func _on_tyousani_iku_pressed():
 	return get_tree().change_scene("res://scene/kyotenti.tscn")
-
-
-func _on_iie_pressed():
-	$settei.hide()
 
 
 func _on_kakunin_pressed():
@@ -87,8 +64,8 @@ func _on_kakunin_pressed():
 
 
 func _on_dougu_pressed():
-	$item.popup()
 	$Popup.hide()
+	$item.popup()
 
 
 func _on_item_modoru_pressed():
@@ -96,8 +73,8 @@ func _on_item_modoru_pressed():
 
 
 func _on_status_pressed():
-	$status.popup()
 	$Popup.hide()
+	$status.popup()
 
 
 func _on_status_modoru_pressed():
@@ -105,8 +82,8 @@ func _on_status_modoru_pressed():
 
 
 func _on_tyousasyo_pressed():
-	$tyousasyo.popup()
 	$Popup.hide()
+	$tyousasyo.popup()
 
 
 func _on_tyousasyo_modoru_pressed():
@@ -118,6 +95,7 @@ func _on_sonota_pressed():
 
 
 func _on_kiroku_pressed():
+	$settei.hide()
 	$savesuru.popup()
 
 
@@ -129,7 +107,8 @@ func _on_savesuru_pressed():
 
 
 func _on_savesinai_pressed():
-	$settei.hide()
 	$savesuru.hide()
 
 
+func _on_sougen_pressed():
+	return get_tree().change_scene("res://scene/sougen/sougen_area.tscn")

@@ -1,20 +1,16 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://data/font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://data/font_tiisame.tres" type="DynamicFont" id=1]
 [ext_resource path="res://script/sougen/goblin.gd" type="Script" id=2]
 [ext_resource path="res://data/image/bg/wood_sun.png" type="Texture" id=3]
 [ext_resource path="res://data/image/monster/goburinn.png" type="Texture" id=4]
-[ext_resource path="res://script/player.gd" type="Script" id=6]
+[ext_resource path="res://data/font.tres" type="DynamicFont" id=5]
+[ext_resource path="res://script/status.gd" type="Script" id=6]
 
 [node name="goblin" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
-
-[node name="player" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-script = ExtResource( 6 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -24,130 +20,116 @@ texture = ExtResource( 3 )
 expand = true
 
 [node name="gazou" type="TextureRect" parent="."]
-margin_left = 66.0
-margin_top = 486.0
-margin_right = 1722.0
-margin_bottom = 2162.0
+margin_left = 329.0
+margin_top = 135.0
+margin_right = 1561.0
+margin_bottom = 1378.0
 rect_scale = Vector2( 0.28, 0.28 )
 texture = ExtResource( 4 )
+expand = true
+stretch_mode = 5
 
 [node name="sentou" type="Button" parent="."]
-margin_top = 1050.0
-margin_right = 150.0
-margin_bottom = 1130.0
+margin_left = 79.0
+margin_top = 512.0
+margin_right = 259.0
+margin_bottom = 592.0
 custom_fonts/font = ExtResource( 1 )
-toggle_mode = true
 text = "戦闘"
 
-[node name="kill" type="Button" parent="sentou"]
+[node name="kill" type="Button" parent="."]
 visible = false
-margin_top = 80.0
-margin_right = 300.0
-margin_bottom = 160.0
+margin_left = 192.0
+margin_top = 511.0
+margin_right = 483.0
+margin_bottom = 591.0
 custom_fonts/font = ExtResource( 1 )
-text = "殺す"
+text = "糧にする"
 
-[node name="utinomesu" type="Button" parent="sentou"]
+[node name="utinomesu" type="Button" parent="."]
 visible = false
-margin_left = 300.0
-margin_top = 80.0
-margin_right = 600.0
-margin_bottom = 160.0
+margin_left = 491.0
+margin_top = 511.0
+margin_right = 780.0
+margin_bottom = 591.0
 custom_fonts/font = ExtResource( 1 )
 text = "打ちのめす"
 
 [node name="saikindo" type="Button" parent="."]
 visible = false
-margin_top = 1050.0
-margin_right = 300.0
-margin_bottom = 1130.0
+margin_left = 46.0
+margin_top = 511.0
+margin_right = 346.0
+margin_bottom = 591.0
 custom_fonts/font = ExtResource( 1 )
 text = "最近どう？"
 
 [node name="tugihe" type="Button" parent="."]
 visible = false
-margin_top = 1050.0
-margin_right = 300.0
-margin_bottom = 1130.0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -149.0
+margin_top = -88.0
+margin_right = 151.0
+margin_bottom = -8.0
 custom_fonts/font = ExtResource( 1 )
 text = "次へ"
 
-[node name="modoru" type="Button" parent="."]
+[node name="ikkai_modoru" type="Button" parent="."]
 visible = false
-margin_top = 1050.0
-margin_right = 300.0
-margin_bottom = 1130.0
+margin_left = 364.0
+margin_top = 512.0
+margin_right = 664.0
+margin_bottom = 592.0
 custom_fonts/font = ExtResource( 1 )
 text = "戻る"
 
-[node name="kyoten" type="Button" parent="."]
-visible = false
-margin_top = 1050.0
-margin_right = 300.0
-margin_bottom = 1130.0
-custom_fonts/font = ExtResource( 1 )
-text = "拠点地へ戻る"
-
-[node name="tomodati" type="Button" parent="."]
-visible = false
-margin_top = 1130.0
-margin_right = 600.0
-margin_bottom = 1210.0
-custom_fonts/font = ExtResource( 1 )
-text = "友達になってくれる？"
-
 [node name="koudou" type="Button" parent="."]
-margin_left = 150.0
-margin_top = 1050.0
-margin_right = 300.0
-margin_bottom = 1130.0
+margin_left = 299.0
+margin_top = 512.0
+margin_right = 481.0
+margin_bottom = 592.0
 custom_fonts/font = ExtResource( 1 )
-toggle_mode = true
 text = "行動"
 
-[node name="aisatu" type="Button" parent="koudou"]
+[node name="aisatu" type="Button" parent="."]
 visible = false
-margin_left = -150.0
-margin_top = 80.0
-margin_bottom = 160.0
+margin_left = 81.0
+margin_top = 511.0
+margin_right = 261.0
+margin_bottom = 591.0
 custom_fonts/font = ExtResource( 1 )
 text = "挨拶"
 
-[node name="kaiwa" type="Button" parent="koudou"]
+[node name="kaiwa" type="Button" parent="."]
 visible = false
-margin_top = 80.0
-margin_right = 150.0
-margin_bottom = 160.0
+margin_left = 299.0
+margin_top = 511.0
+margin_right = 479.0
+margin_bottom = 591.0
 custom_fonts/font = ExtResource( 1 )
 text = "会話"
 
-[node name="okurimono" type="Button" parent="koudou"]
+[node name="batou" type="Button" parent="."]
 visible = false
-margin_left = 150.0
-margin_top = 80.0
-margin_right = 300.0
-margin_bottom = 160.0
-custom_fonts/font = ExtResource( 1 )
-text = "贈り物"
-
-[node name="batou" type="Button" parent="koudou"]
-visible = false
-margin_left = 300.0
-margin_top = 80.0
-margin_right = 450.0
-margin_bottom = 160.0
+margin_left = 519.0
+margin_top = 511.0
+margin_right = 699.0
+margin_bottom = 591.0
 custom_fonts/font = ExtResource( 1 )
 text = "罵倒"
 
 [node name="Panel" type="Panel" parent="."]
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -300.0
-margin_top = 280.0
-margin_right = 300.0
-margin_bottom = 427.0
+anchor_bottom = 1.0
+margin_left = -432.0
+margin_top = -217.0
+margin_right = 408.0
+margin_bottom = -97.0
 
 [node name="message" type="Label" parent="Panel"]
 anchor_left = 0.0116667
@@ -160,71 +142,19 @@ margin_right = 26.0002
 margin_bottom = 13.5
 custom_fonts/font = ExtResource( 1 )
 
-[node name="kakunin" type="Button" parent="."]
-margin_left = 300.0
-margin_top = 1050.0
-margin_right = 450.0
-margin_bottom = 1130.0
-custom_fonts/font = ExtResource( 1 )
-toggle_mode = true
-text = "確認"
-
-[node name="kakunin_sita" type="ColorRect" parent="kakunin"]
-visible = false
-margin_left = -6.0
-margin_top = -150.0
-margin_right = 286.0
-color = Color( 0.52549, 0.509804, 0.509804, 0.745098 )
-
-[node name="kakunin_kontena" type="VBoxContainer" parent="kakunin"]
-visible = false
-margin_top = -143.0
-margin_right = 280.0
-margin_bottom = -6.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-alignment = 1
-
-[node name="dougu" type="Button" parent="kakunin/kakunin_kontena"]
-margin_right = 280.0
-margin_bottom = 43.0
-size_flags_horizontal = 3
-size_flags_vertical = 2
-size_flags_stretch_ratio = 0.0
-custom_fonts/font = ExtResource( 1 )
-text = "持ち物"
-
-[node name="status" type="Button" parent="kakunin/kakunin_kontena"]
-margin_top = 47.0
-margin_right = 280.0
-margin_bottom = 90.0
-size_flags_horizontal = 3
-size_flags_vertical = 2
-custom_fonts/font = ExtResource( 1 )
-text = "自分の事"
-
-[node name="tyousasyo" type="Button" parent="kakunin/kakunin_kontena"]
-margin_top = 94.0
-margin_right = 280.0
-margin_bottom = 137.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = ExtResource( 1 )
-text = "調査書"
-
 [node name="nigeru" type="Button" parent="."]
-margin_left = 450.0
-margin_top = 1050.0
-margin_right = 600.0
-margin_bottom = 1130.0
+margin_left = 739.0
+margin_top = 511.0
+margin_right = 919.0
+margin_bottom = 591.0
 custom_fonts/font = ExtResource( 1 )
 text = "逃走"
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = 8.0
-margin_top = 264.0
-margin_right = 592.0
-margin_bottom = 325.0
+margin_left = 7.0
+margin_top = 336.0
+margin_right = 411.0
+margin_bottom = 376.0
 color = Color( 0.45098, 0.439216, 0.439216, 0.588235 )
 
 [node name="namae" type="Label" parent="ColorRect"]
@@ -232,10 +162,10 @@ anchor_left = 0.0116667
 anchor_top = 0.0510204
 anchor_right = 0.923333
 anchor_bottom = 0.860544
-margin_left = 4.22165
-margin_top = 1.78572
-margin_right = -462.456
-margin_bottom = -89.5476
+margin_left = 3.28665
+margin_top = 1.95918
+margin_right = -305.027
+margin_bottom = -0.421761
 custom_fonts/font = ExtResource( 1 )
 text = "名前："
 
@@ -244,21 +174,22 @@ anchor_left = 0.0116667
 anchor_top = 0.0510204
 anchor_right = 0.923333
 anchor_bottom = 0.860544
-margin_left = 68.2216
-margin_top = 1.78572
-margin_right = -247.456
-margin_bottom = -89.5476
+margin_left = 70.2867
+margin_top = 1.95918
+margin_right = -178.027
+margin_bottom = -0.421761
 custom_fonts/font = ExtResource( 1 )
+align = 1
 
 [node name="kankei" type="Label" parent="ColorRect"]
 anchor_left = 0.0116667
 anchor_top = 0.0510204
 anchor_right = 0.923333
 anchor_bottom = 0.860544
-margin_left = 293.222
-margin_top = 1.78572
-margin_right = -174.456
-margin_bottom = -91.5476
+margin_left = 195.287
+margin_top = 1.95918
+margin_right = -113.027
+margin_bottom = -0.421761
 custom_fonts/font = ExtResource( 1 )
 text = "関係："
 
@@ -267,126 +198,406 @@ anchor_left = 0.0116667
 anchor_top = 0.0510204
 anchor_right = 0.923333
 anchor_bottom = 0.860544
-margin_left = 368.222
-margin_top = 1.78572
-margin_right = 35.5435
-margin_bottom = -91.5476
+margin_left = 260.287
+margin_top = 1.95918
+margin_right = 29.9735
+margin_bottom = -0.421761
 custom_fonts/font = ExtResource( 1 )
+align = 1
 
 [node name="ColorRect2" type="ColorRect" parent="."]
-margin_left = 8.0
-margin_top = 144.0
-margin_right = 592.0
-margin_bottom = 253.0
+margin_left = 10.0
+margin_top = 4.0
+margin_right = 1015.0
+margin_bottom = 113.0
 color = Color( 0.529412, 0.486275, 0.486275, 0.466667 )
 
 [node name="pnamae" type="Label" parent="ColorRect2"]
 margin_left = 7.0
 margin_top = 5.0
-margin_right = 107.0
-margin_bottom = 35.0
-custom_fonts/font = ExtResource( 1 )
+margin_right = 240.0
+margin_bottom = 42.0
+custom_fonts/font = ExtResource( 5 )
+align = 1
 
 [node name="mon_zyoutai" type="Label" parent="ColorRect2"]
-margin_left = 7.0
-margin_top = 55.0
-margin_right = 107.0
-margin_bottom = 92.0
-custom_fonts/font = ExtResource( 1 )
+margin_left = 10.0
+margin_top = 60.0
+margin_right = 110.0
+margin_bottom = 100.0
+custom_fonts/font = ExtResource( 5 )
 text = "怪物界："
 
 [node name="mon_zyoutai2" type="Label" parent="ColorRect2"]
-margin_left = 110.0
-margin_top = 55.0
-margin_right = 240.0
-margin_bottom = 92.0
-custom_fonts/font = ExtResource( 1 )
+margin_left = 140.0
+margin_top = 60.0
+margin_right = 270.0
+margin_bottom = 100.0
+custom_fonts/font = ExtResource( 5 )
 
 [node name="hu_zyoutai" type="Label" parent="ColorRect2"]
-margin_left = 250.0
-margin_top = 55.0
-margin_right = 350.0
-margin_bottom = 92.0
-custom_fonts/font = ExtResource( 1 )
+margin_left = 320.0
+margin_top = 60.0
+margin_right = 420.0
+margin_bottom = 100.0
+custom_fonts/font = ExtResource( 5 )
 text = "人間界："
 
 [node name="hu_zyoutai2" type="Label" parent="ColorRect2"]
-margin_left = 360.0
-margin_top = 55.0
-margin_right = 510.0
-margin_bottom = 92.0
-custom_fonts/font = ExtResource( 1 )
+margin_left = 425.0
+margin_top = 60.0
+margin_right = 575.0
+margin_bottom = 100.0
+custom_fonts/font = ExtResource( 5 )
 
 [node name="tairyoku" type="Label" parent="ColorRect2"]
-margin_left = 120.0
-margin_top = 5.0
-margin_right = 171.0
-margin_bottom = 42.0
-custom_fonts/font = ExtResource( 1 )
-text = "体力："
-
-[node name="tairyoku_suuzi" type="Label" parent="ColorRect2"]
-margin_left = 190.0
-margin_top = 5.0
-margin_right = 240.0
-margin_bottom = 42.0
-custom_fonts/font = ExtResource( 1 )
-
-[node name="kinryoku" type="Label" parent="ColorRect2"]
 margin_left = 250.0
 margin_top = 5.0
 margin_right = 325.0
-margin_bottom = 42.0
-custom_fonts/font = ExtResource( 1 )
+margin_bottom = 45.0
+custom_fonts/font = ExtResource( 5 )
+text = "体力："
+
+[node name="tairyoku_suuzi" type="Label" parent="ColorRect2"]
+margin_left = 325.0
+margin_top = 5.0
+margin_right = 425.0
+margin_bottom = 45.0
+custom_fonts/font = ExtResource( 5 )
+
+[node name="kinryoku" type="Label" parent="ColorRect2"]
+margin_left = 460.0
+margin_top = 5.0
+margin_right = 535.0
+margin_bottom = 45.0
+custom_fonts/font = ExtResource( 5 )
 text = "筋力："
 
 [node name="kinryoku_suuzi" type="Label" parent="ColorRect2"]
-margin_left = 330.0
+margin_left = 530.0
 margin_top = 5.0
-margin_right = 380.0
-margin_bottom = 42.0
-custom_fonts/font = ExtResource( 1 )
+margin_right = 630.0
+margin_bottom = 45.0
+custom_fonts/font = ExtResource( 5 )
 
 [node name="taisei" type="Label" parent="ColorRect2"]
-margin_left = 410.0
+margin_left = 680.0
 margin_top = 5.0
-margin_right = 485.0
-margin_bottom = 42.0
-custom_fonts/font = ExtResource( 1 )
+margin_right = 755.0
+margin_bottom = 45.0
+custom_fonts/font = ExtResource( 5 )
 text = "耐性："
 
 [node name="taisei_suuzi" type="Label" parent="ColorRect2"]
-margin_left = 500.0
+margin_left = 760.0
 margin_top = 5.0
-margin_right = 550.0
-margin_bottom = 42.0
-custom_fonts/font = ExtResource( 1 )
+margin_right = 860.0
+margin_bottom = 45.0
+custom_fonts/font = ExtResource( 5 )
 
 [node name="areanamae" type="Label" parent="ColorRect2"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -35.0
-margin_top = -81.0
-margin_right = 36.0
-margin_bottom = -39.0
-custom_fonts/font = ExtResource( 1 )
+margin_left = 297.5
+margin_top = 60.0
+margin_right = 368.5
+margin_bottom = 102.0
+custom_fonts/font = ExtResource( 5 )
 text = "草原"
 align = 1
 
+[node name="areanamae2" type="Label" parent="ColorRect2"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 177.5
+margin_top = 60.0
+margin_right = 277.5
+margin_bottom = 102.0
+custom_fonts/font = ExtResource( 5 )
+text = "エリア："
+align = 1
+
+[node name="dati" type="Button" parent="."]
+visible = false
+margin_left = 250.0
+margin_top = 507.0
+margin_right = 728.0
+margin_bottom = 594.0
+custom_fonts/font = ExtResource( 1 )
+text = "友達になろう"
+
+[node name="kyoten" type="Button" parent="."]
+visible = false
+margin_right = 12.0
+margin_bottom = 20.0
+
+[node name="kakunin" type="Button" parent="."]
+margin_left = 519.0
+margin_top = 510.0
+margin_right = 699.0
+margin_bottom = 590.0
+custom_fonts/font = ExtResource( 1 )
+toggle_mode = true
+text = "確認"
+
+[node name="PopupPanel" type="PopupPanel" parent="."]
+margin_left = 699.0
+margin_top = 122.0
+margin_right = 1011.0
+margin_bottom = 374.0
+
+[node name="item" type="Control" parent="PopupPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="ColorRect" type="ColorRect" parent="PopupPanel/item"]
+margin_left = 2.0
+margin_top = 3.0
+margin_right = 299.0
+margin_bottom = 241.0
+color = Color( 0.529412, 0.486275, 0.486275, 0.466667 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PopupPanel/item/ColorRect"]
+margin_left = 1.0
+margin_top = -1.0
+margin_right = 296.0
+margin_bottom = 238.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupPanel/item/ColorRect/ScrollContainer"]
+margin_right = 295.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="PopupPanel/item/ColorRect/ScrollContainer/VBoxContainer"]
+margin_right = 295.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+flat = true
+expand_icon = true
+
+[node name="status" type="Popup" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="status" type="Control" parent="status"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="ColorRect" parent="status/status"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 6.10352e-05
+color = Color( 0.180392, 0.180392, 0.180392, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="status/status"]
+margin_left = 15.0
+margin_top = 10.0
+margin_right = 1010.0
+margin_bottom = 464.0
+color = Color( 0.529412, 0.486275, 0.486275, 0.466667 )
+
+[node name="areanamae" type="Label" parent="status/status/ColorRect"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -484.5
+margin_top = 14.0
+margin_right = -79.5
+margin_bottom = 56.0
+custom_fonts/font = ExtResource( 5 )
+align = 1
+
+[node name="tairyoku" type="Label" parent="status/status/ColorRect"]
+margin_left = 40.0
+margin_top = 70.0
+margin_right = 115.0
+margin_bottom = 55.0
+custom_fonts/font = ExtResource( 5 )
+text = "体力："
+
+[node name="tairyoku_suuzi" type="Label" parent="status/status/ColorRect/tairyoku"]
+margin_left = 260.0
+margin_right = 225.0
+custom_fonts/font = ExtResource( 5 )
+align = 1
+
+[node name="kinryoku" type="Label" parent="status/status/ColorRect"]
+margin_left = 40.0
+margin_top = 110.0
+margin_right = 115.0
+margin_bottom = 100.0
+custom_fonts/font = ExtResource( 5 )
+text = "筋力："
+
+[node name="kinryoku_suuzi" type="Label" parent="status/status/ColorRect/kinryoku"]
+margin_left = 260.0
+margin_right = 225.0
+custom_fonts/font = ExtResource( 5 )
+align = 1
+
+[node name="taisei" type="Label" parent="status/status/ColorRect"]
+margin_left = 40.0
+margin_top = 150.0
+margin_right = 115.0
+margin_bottom = 140.0
+custom_fonts/font = ExtResource( 5 )
+text = "耐性："
+
+[node name="taisei_suuzi" type="Label" parent="status/status/ColorRect/taisei"]
+margin_left = 260.0
+margin_right = 225.0
+custom_fonts/font = ExtResource( 5 )
+align = 1
+
+[node name="syozikin" type="Label" parent="status/status/ColorRect"]
+margin_left = 40.0
+margin_top = 190.0
+margin_right = 140.0
+margin_bottom = 180.0
+custom_fonts/font = ExtResource( 5 )
+text = "所持金："
+
+[node name="syozikin_suuzi" type="Label" parent="status/status/ColorRect/syozikin"]
+margin_left = 260.0
+margin_right = 225.0
+custom_fonts/font = ExtResource( 5 )
+align = 1
+
+[node name="mon_zyoutai" type="Label" parent="status/status/ColorRect"]
+margin_left = 40.0
+margin_top = 230.0
+margin_right = 140.0
+margin_bottom = 230.0
+custom_fonts/font = ExtResource( 5 )
+text = "怪物界："
+
+[node name="mon_zyoutai2" type="Label" parent="status/status/ColorRect/mon_zyoutai"]
+margin_left = 260.0
+margin_right = 225.0
+custom_fonts/font = ExtResource( 5 )
+align = 1
+
+[node name="hu_zyoutai" type="Label" parent="status/status/ColorRect"]
+margin_left = 40.0
+margin_top = 270.0
+margin_right = 140.0
+margin_bottom = 275.0
+custom_fonts/font = ExtResource( 5 )
+text = "人間界："
+
+[node name="hu_zyoutai2" type="Label" parent="status/status/ColorRect/hu_zyoutai"]
+margin_left = 260.0
+margin_right = 225.0
+custom_fonts/font = ExtResource( 5 )
+align = 1
+
+[node name="dati_mon" type="Label" parent="status/status/ColorRect"]
+margin_left = 40.0
+margin_top = 310.0
+margin_right = 270.0
+margin_bottom = 320.0
+custom_fonts/font = ExtResource( 5 )
+text = "ダチになった怪物："
+
+[node name="dati_mon2" type="Label" parent="status/status/ColorRect/dati_mon"]
+margin_left = 260.0
+margin_right = 225.0
+custom_fonts/font = ExtResource( 5 )
+align = 1
+
+[node name="dati_hu" type="Label" parent="status/status/ColorRect"]
+margin_left = 40.0
+margin_top = 350.0
+margin_right = 265.0
+margin_bottom = 360.0
+custom_fonts/font = ExtResource( 5 )
+text = "ダチになった人間："
+
+[node name="dati_hu2" type="Label" parent="status/status/ColorRect/dati_hu"]
+margin_left = 260.0
+margin_right = 225.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 5 )
+align = 1
+
+[node name="katemon" type="Label" parent="status/status/ColorRect"]
+margin_left = 540.0
+margin_top = 310.0
+margin_right = 265.0
+custom_fonts/font = ExtResource( 5 )
+text = "カテになった怪物："
+
+[node name="katemon2" type="Label" parent="status/status/ColorRect/katemon"]
+margin_left = 260.0
+margin_right = 225.0
+custom_fonts/font = ExtResource( 5 )
+align = 1
+
+[node name="katehu" type="Label" parent="status/status/ColorRect"]
+margin_left = 540.0
+margin_top = 350.0
+margin_right = 265.0
+custom_fonts/font = ExtResource( 5 )
+text = "カテになった人間："
+
+[node name="katehu2" type="Label" parent="status/status/ColorRect/katehu"]
+margin_left = 260.0
+margin_right = 225.0
+custom_fonts/font = ExtResource( 5 )
+align = 1
+
+[node name="status_modoru" type="Button" parent="status/status"]
+margin_left = 226.0
+margin_top = 508.0
+margin_right = 796.0
+margin_bottom = 588.0
+custom_fonts/font = ExtResource( 5 )
+text = "戻る"
+
+[node name="Popup2" type="Popup" parent="."]
+margin_left = 405.0
+margin_top = 278.0
+margin_right = 701.0
+margin_bottom = 381.0
+
+[node name="dougu" type="Button" parent="Popup2"]
+margin_right = 280.0
+margin_bottom = 43.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.0
+custom_fonts/font = ExtResource( 5 )
+text = "持ち物"
+
+[node name="status" type="Button" parent="Popup2"]
+margin_top = 47.0
+margin_right = 280.0
+margin_bottom = 90.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+custom_fonts/font = ExtResource( 5 )
+text = "自分の事"
+
 [connection signal="pressed" from="sentou" to="." method="_on_sentou_pressed"]
-[connection signal="toggled" from="sentou" to="." method="_on_sentou_toggled"]
-[connection signal="pressed" from="sentou/kill" to="." method="_on_kill_pressed"]
-[connection signal="pressed" from="sentou/utinomesu" to="." method="_on_utinomesu_pressed"]
+[connection signal="pressed" from="kill" to="." method="_on_kill_pressed"]
+[connection signal="pressed" from="utinomesu" to="." method="_on_utinomesu_pressed"]
 [connection signal="pressed" from="saikindo" to="." method="_on_saikindo_pressed"]
 [connection signal="pressed" from="tugihe" to="." method="_on_tugihe_pressed"]
-[connection signal="pressed" from="modoru" to="." method="_on_modoru_pressed"]
-[connection signal="pressed" from="kyoten" to="." method="_on_kyoten_pressed"]
-[connection signal="pressed" from="tomodati" to="." method="_on_tomodati_pressed"]
+[connection signal="pressed" from="ikkai_modoru" to="." method="_on_ikkai_modoru_pressed"]
 [connection signal="pressed" from="koudou" to="." method="_on_koudou_pressed"]
-[connection signal="toggled" from="koudou" to="." method="_on_koudou_toggled"]
-[connection signal="pressed" from="koudou/aisatu" to="." method="_on_aisatu_pressed"]
-[connection signal="pressed" from="koudou/kaiwa" to="." method="_on_kaiwa_pressed"]
-[connection signal="pressed" from="koudou/batou" to="." method="_on_batou_pressed"]
-[connection signal="pressed" from="kakunin" to="." method="_on_kakunin_pressed"]
-[connection signal="toggled" from="kakunin" to="." method="_on_kakunin_toggled"]
+[connection signal="pressed" from="aisatu" to="." method="_on_aisatu_pressed"]
+[connection signal="pressed" from="kaiwa" to="." method="_on_kaiwa_pressed"]
+[connection signal="pressed" from="batou" to="." method="_on_batou_pressed"]
 [connection signal="pressed" from="nigeru" to="." method="_on_nigeru_pressed"]
+[connection signal="pressed" from="dati" to="." method="_on_dati_pressed"]
+[connection signal="pressed" from="kyoten" to="." method="_on_kyoten_pressed"]
+[connection signal="pressed" from="kakunin" to="." method="_on_kakunin_pressed"]
+[connection signal="pressed" from="status/status/status_modoru" to="." method="_on_status_modoru_pressed"]
+[connection signal="pressed" from="Popup2/dougu" to="." method="_on_dougu_pressed"]
+[connection signal="pressed" from="Popup2/status" to="." method="_on_status_pressed"]
